@@ -1,0 +1,167 @@
+[gd_scene load_steps=8 format=3 uid="uid://fc1qrw0qrcbo"]
+
+[ext_resource type="Script" path="res://Button.gd" id="1_6ljsi"]
+[ext_resource type="Texture2D" uid="uid://g8hebppdgle3" path="res://Images/Player/base-1-1-pixilart.png" id="2_nq7fx"]
+[ext_resource type="Script" path="res://SpriteSelect.gd" id="3_r4gqj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oyvod"]
+font_size = 100
+font_color = Color(0, 1, 0.0823529, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="FontFile_bv8g5"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/64/0 = Vector2(0, 0)
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/32/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/64/0 = Vector2(0, 0)
+cache/0/64/0/ascent = 0.0
+cache/0/64/0/descent = 0.0
+cache/0/64/0/underline_position = 0.0
+cache/0/64/0/underline_thickness = 0.0
+cache/0/64/0/scale = 1.0
+cache/0/64/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/64/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/64/0/kerning_overrides/64/0 = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_p2acr"]
+default_font = SubResource("FontFile_bv8g5")
+Button/colors/font_color = Color(0, 1, 0.290196, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(1, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 64
+Button/fonts/font = SubResource("FontFile_bv8g5")
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[sub_resource type="Theme" id="Theme_geqhl"]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 41.0
+offset_right = 1029.0
+offset_bottom = 178.0
+text = "Derek's Adventure"
+label_settings = SubResource("LabelSettings_oyvod")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 260.0
+offset_right = 767.0
+offset_bottom = 374.0
+theme = SubResource("Theme_p2acr")
+text = "Play"
+script = ExtResource("1_6ljsi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(230, 484)
+scale = Vector2(10, 10)
+texture = ExtResource("2_nq7fx")
+script = ExtResource("3_r4gqj")
+
+[node name="RightHair" type="Button" parent="Sprite2D"]
+offset_left = 6.6
+offset_top = -12.0
+offset_right = 71.6
+offset_bottom = 133.0
+scale = Vector2(0.0840003, 0.0679999)
+theme = SubResource("Theme_geqhl")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = ">"
+
+[node name="RightCostume" type="Button" parent="Sprite2D"]
+offset_left = 9.3
+offset_top = -0.999999
+offset_right = 74.3
+offset_bottom = 144.0
+scale = Vector2(0.0880003, 0.0804312)
+theme = SubResource("Theme_geqhl")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = ">"
+
+[node name="LeftCostume" type="Button" parent="Sprite2D"]
+offset_left = -14.6
+offset_top = -0.999999
+offset_right = 50.4
+offset_bottom = 144.0
+scale = Vector2(0.0880003, 0.0804312)
+theme = SubResource("Theme_geqhl")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "<"
+
+[node name="LeftHair" type="Button" parent="Sprite2D"]
+offset_left = -13.3
+offset_top = -12.0
+offset_right = 51.7
+offset_bottom = 133.0
+scale = Vector2(0.0840003, 0.0679999)
+theme = SubResource("Theme_geqhl")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "<"
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Sprite2D/RightHair" to="Sprite2D" method="_on_right_hair"]
+[connection signal="pressed" from="Sprite2D/RightCostume" to="Sprite2D" method="_on_right_costume"]
+[connection signal="pressed" from="Sprite2D/LeftCostume" to="Sprite2D" method="_on_left_costume"]
+[connection signal="pressed" from="Sprite2D/LeftHair" to="Sprite2D" method="_on_left_hair"]
