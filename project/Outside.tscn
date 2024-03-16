@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bywhhtyhir6jb"]
+[gd_scene load_steps=14 format=3 uid="uid://bywhhtyhir6jb"]
 
 [ext_resource type="Texture2D" uid="uid://r0i8odc2tso7" path="res://Images/Enviroment/Outside/Map1.png" id="1_vqcc3"]
 [ext_resource type="Texture2D" uid="uid://dfphk285fikm3" path="res://Images/Enviroment/Outside/Map2.png" id="2_eiubf"]
@@ -12,12 +12,21 @@ size = Vector2(34.6667, 988)
 size = Vector2(1748, 13.6667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycci1"]
-size = Vector2(100.333, 71.3334)
+size = Vector2(103.667, 83.0004)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6dkw"]
-size = Vector2(142.667, 105.333)
+size = Vector2(142.667, 107.666)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_it2qu"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nqin"]
+size = Vector2(6.27416, 1.73982)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4f47"]
+size = Vector2(54.9321, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mk2dp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgevk"]
+size = Vector2(17.3333, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wgfq"]
 size = Vector2(16.2857, 0.621104)
@@ -53,21 +62,50 @@ shape = SubResource("RectangleShape2D_luxoj")
 position = Vector2(752.667, 967)
 shape = SubResource("RectangleShape2D_luxoj")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(5.5, 357.667)
+[node name="EnemyHouse" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(7.16675, 351.834)
 shape = SubResource("RectangleShape2D_ycci1")
 
 [node name="StartingHouse1" type="CollisionShape2D" parent="StaticBody2D"]
 z_index = 1
-position = Vector2(714, 354.333)
+position = Vector2(714, 353.166)
 shape = SubResource("RectangleShape2D_d6dkw")
 
 [node name="StartingHouse2" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_it2qu")
+position = Vector2(682.958, 296.263)
+rotation = -0.382227
+scale = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_6nqin")
+
+[node name="StartingHouse3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(745.667, 296)
+rotation = 0.366519
+scale = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_6nqin")
+
+[node name="EnemyHouse2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-15.6667, 308.333)
+rotation = -0.445059
+shape = SubResource("RectangleShape2D_d4f47")
+
+[node name="EnemyHouse3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(26.6667, 307.333)
+rotation = 0.436332
+shape = SubResource("RectangleShape2D_d4f47")
+
+[node name="Tree" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1330.33, 343)
+scale = Vector2(3.66667, 2.86667)
+shape = SubResource("RectangleShape2D_mk2dp")
+
+[node name="Tree2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1331.33, 376.833)
+shape = SubResource("RectangleShape2D_sgevk")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(1685, 1218)
 scale = Vector2(7, 7)
+motion_mode = 1
 script = ExtResource("3_7mxq1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]

@@ -33,6 +33,7 @@ size = Vector2(830.5, 20)
 size = Vector2(16.2857, 0.621104)
 
 [node name="Room" type="Node2D"]
+scale = Vector2(1.68, 1.64)
 
 [node name="Room" type="StaticBody2D" parent="."]
 

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var SPEED = 300.0
+var SPEED = 600.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -12,7 +12,7 @@ func _ready():
 	
 
 func _physics_process(delta):
-	if SPEED == 300.0 and get_tree().current_scene.name == "Outside":
+	if SPEED == 600.0 and get_tree().current_scene.name == "Outside":
 		SPEED = 600
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
