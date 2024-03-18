@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bywhhtyhir6jb"]
+[gd_scene load_steps=16 format=3 uid="uid://bywhhtyhir6jb"]
 
 [ext_resource type="Texture2D" uid="uid://r0i8odc2tso7" path="res://Images/Enviroment/Outside/Map1.png" id="1_vqcc3"]
+[ext_resource type="Script" path="res://Collisions.gd" id="1_wir8h"]
 [ext_resource type="Texture2D" uid="uid://dfphk285fikm3" path="res://Images/Enviroment/Outside/Map2.png" id="2_eiubf"]
 [ext_resource type="Script" path="res://Movement.gd" id="3_7mxq1"]
 [ext_resource type="Texture2D" uid="uid://g8hebppdgle3" path="res://Images/Player/base-1-1-pixilart.png" id="4_hsgnn"]
@@ -28,10 +29,14 @@ size = Vector2(54.9321, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgevk"]
 size = Vector2(17.3333, 37)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kbdf"]
+size = Vector2(31, 2.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wgfq"]
 size = Vector2(16.2857, 0.621104)
 
 [node name="Outside" type="Node2D"]
+script = ExtResource("1_wir8h")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 scale = Vector2(3, 3)
@@ -102,18 +107,26 @@ shape = SubResource("RectangleShape2D_mk2dp")
 position = Vector2(1331.33, 376.833)
 shape = SubResource("RectangleShape2D_sgevk")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(714, 409.917)
+shape = SubResource("RectangleShape2D_7kbdf")
+
+[node name="Char" type="CharacterBody2D" parent="."]
 position = Vector2(1685, 1218)
 scale = Vector2(7, 7)
 motion_mode = 1
 script = ExtResource("3_7mxq1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Char"]
 position = Vector2(0, 10.5714)
 scale = Vector2(1, 2.35923)
 shape = SubResource("RectangleShape2D_3wgfq")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Char"]
 texture = ExtResource("4_hsgnn")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Char"]
+
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="." method="_on_door"]
