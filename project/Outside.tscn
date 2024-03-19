@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bywhhtyhir6jb"]
+[gd_scene load_steps=20 format=3 uid="uid://bywhhtyhir6jb"]
 
 [ext_resource type="Texture2D" uid="uid://r0i8odc2tso7" path="res://Images/Enviroment/Outside/Map1.png" id="1_vqcc3"]
 [ext_resource type="Script" path="res://Collisions.gd" id="1_wir8h"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://Movement.gd" id="3_7mxq1"]
 [ext_resource type="Texture2D" uid="uid://g8hebppdgle3" path="res://Images/Player/base-1-1-pixilart.png" id="4_hsgnn"]
 [ext_resource type="Script" path="res://EnemySpawning.gd" id="6_kq5fj"]
+[ext_resource type="Script" path="res://Hearts.gd" id="7_1ndoj"]
+[ext_resource type="Texture2D" uid="uid://cqjddjx2610t7" path="res://Images/heart-pixilart.png" id="8_ccw5h"]
+[ext_resource type="PackedScene" uid="uid://dxu6k34vflugy" path="res://heart.tscn" id="8_dhrdn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_l7bgy"]
 vertices = PackedVector2Array(1518, -327, 1516, 287, 1516, -316, -309, -327, -294, -316, -322, 695, -294, 692, 1514, 695, -240, 692, -240, 688, 1462, 688, 1462, 692, 1514, 692, -240, 654, 648, 121, 1165, 110, 1202, 110, 1462, 654, 1229, 86, 1229, 9, 1462, -282, -240, -282, 1136, 9, 576, -38, -79, 108, 485, -6, 485, 121, -79, 5, 648, -6, 1136, 86, 1165, 86, 1202, 86, -202, 108, -202, 9, -152, -14, -152, -25, 638, -6, 576, -30, 566, -34, 562, -36, -88, 5, 559, -31, 496, -6)
@@ -36,6 +39,9 @@ size = Vector2(20, 27.3256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wgfq"]
 size = Vector2(16.2857, 9.63562)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykllp"]
+size = Vector2(14, 22.4286)
 
 [node name="Outside" type="Node2D"]
 script = ExtResource("1_wir8h")
@@ -121,15 +127,59 @@ scale = Vector2(7, 7)
 motion_mode = 1
 script = ExtResource("3_7mxq1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Char"]
-position = Vector2(0, -0.0622559)
-scale = Vector2(1, 2.35923)
-shape = SubResource("RectangleShape2D_3wgfq")
-
 [node name="Sprite2D" type="Sprite2D" parent="Char"]
 texture = ExtResource("4_hsgnn")
 
 [node name="Camera2D" type="Camera2D" parent="Char"]
+
+[node name="UI" type="Control" parent="Char"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 106.143
+offset_top = -191.0
+offset_right = 146.143
+offset_bottom = -151.0
+
+[node name="Hearts" type="Control" parent="Char/UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_1ndoj")
+
+[node name="Heart1" parent="Char/UI/Hearts" instance=ExtResource("8_dhrdn")]
+layout_mode = 0
+offset_left = -246.143
+offset_top = 101.571
+offset_right = -206.143
+offset_bottom = 141.571
+texture = ExtResource("8_ccw5h")
+
+[node name="Heart2" parent="Char/UI/Hearts" instance=ExtResource("8_dhrdn")]
+layout_mode = 0
+offset_left = -209.0
+offset_top = 101.571
+offset_right = -169.0
+offset_bottom = 141.571
+texture = ExtResource("8_ccw5h")
+
+[node name="Heart3" parent="Char/UI/Hearts" instance=ExtResource("8_dhrdn")]
+layout_mode = 0
+offset_left = -172.143
+offset_top = 101.571
+offset_right = -132.143
+offset_bottom = 141.571
+texture = ExtResource("8_ccw5h")
+
+[node name="Area2D" type="Area2D" parent="Char"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Char/Area2D"]
+position = Vector2(0, -0.0622559)
+scale = Vector2(1, 2.35923)
+shape = SubResource("RectangleShape2D_3wgfq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Char"]
+position = Vector2(0.285706, -0.0714874)
+shape = SubResource("RectangleShape2D_ykllp")
 
 [node name="Enemys" type="Node2D" parent="."]
 script = ExtResource("6_kq5fj")
@@ -139,4 +189,5 @@ wait_time = 5.0
 autostart = true
 
 [connection signal="body_entered" from="NavigationRegion2D/StaticBody2D/Area2D" to="." method="_on_door"]
+[connection signal="body_entered" from="Char/Area2D" to="Char/UI/Hearts" method="enemy_hit"]
 [connection signal="timeout" from="Enemys/EnemySpawn" to="Enemys" method="_on_timer_timeout"]
