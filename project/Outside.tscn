@@ -5,6 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://dfphk285fikm3" path="res://Images/Enviroment/Outside/Map2.png" id="2_eiubf"]
 [ext_resource type="Script" path="res://Movement.gd" id="3_7mxq1"]
 [ext_resource type="Texture2D" uid="uid://g8hebppdgle3" path="res://Images/Player/base-1-1-pixilart.png" id="4_hsgnn"]
+[ext_resource type="Script" path="res://EnemySpawning.gd" id="6_kq5fj"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_l7bgy"]
+vertices = PackedVector2Array(1518, -327, 1516, 287, 1516, -316, -309, -327, -294, -316, -322, 695, -294, 692, 1514, 695, -240, 692, -240, 688, 1462, 688, 1462, 692, 1514, 692, -240, 654, 648, 121, 1165, 110, 1202, 110, 1462, 654, 1229, 86, 1229, 9, 1462, -282, -240, -282, 1136, 9, 576, -38, -79, 108, 485, -6, 485, 121, -79, 5, 648, -6, 1136, 86, 1165, 86, 1202, 86, -202, 108, -202, 9, -152, -14, -152, -25, 638, -6, 576, -30, 566, -34, 562, -36, -88, 5, 559, -31, 496, -6)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2, 4), PackedInt32Array(5, 3, 4, 6), PackedInt32Array(7, 5, 6, 8), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(7, 8, 11), PackedInt32Array(7, 11, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(18, 19, 20, 17), PackedInt32Array(21, 20, 19, 22, 23), PackedInt32Array(24, 25, 26, 13), PackedInt32Array(25, 24, 27), PackedInt32Array(15, 14, 28, 29), PackedInt32Array(29, 30, 15), PackedInt32Array(22, 29, 28, 23), PackedInt32Array(16, 31, 18, 17), PackedInt32Array(26, 14, 13), PackedInt32Array(32, 24, 13), PackedInt32Array(32, 13, 21, 33), PackedInt32Array(34, 33, 21, 35), PackedInt32Array(36, 37, 23, 28), PackedInt32Array(23, 38, 39), PackedInt32Array(25, 27, 40, 35, 21, 39), PackedInt32Array(39, 41, 42, 25), PackedInt32Array(23, 39, 21)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-319, -336.667, -332, 705, 1524, 705, 1528.67, -338.333)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o01fc"]
 size = Vector2(34.6667, 988)
@@ -25,102 +32,97 @@ size = Vector2(6.27416, 1.73982)
 size = Vector2(54.9321, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mk2dp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgevk"]
-size = Vector2(17.3333, 37)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kbdf"]
-size = Vector2(31, 2.5)
+size = Vector2(20, 27.3256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wgfq"]
-size = Vector2(16.2857, 0.621104)
+size = Vector2(16.2857, 9.63562)
 
 [node name="Outside" type="Node2D"]
 script = ExtResource("1_wir8h")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(443, 887)
 scale = Vector2(3, 3)
+navigation_polygon = SubResource("NavigationPolygon_l7bgy")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D"]
+position = Vector2(-147.667, -295.667)
+
+[node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(757, 487)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_vqcc3")
 
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D2" type="Sprite2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(757, 487)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_eiubf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(-119.333, 484)
 shape = SubResource("RectangleShape2D_o01fc")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(1636.67, 484)
 shape = SubResource("RectangleShape2D_o01fc")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(752.667, -3.16667)
 shape = SubResource("RectangleShape2D_luxoj")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(752.667, 967)
 shape = SubResource("RectangleShape2D_luxoj")
 
-[node name="EnemyHouse" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="EnemyHouse" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(7.16675, 351.834)
 shape = SubResource("RectangleShape2D_ycci1")
 
-[node name="StartingHouse1" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="StartingHouse1" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 z_index = 1
 position = Vector2(714, 353.166)
 shape = SubResource("RectangleShape2D_d6dkw")
 
-[node name="StartingHouse2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="StartingHouse2" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(682.958, 296.263)
 rotation = -0.382227
 scale = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_6nqin")
 
-[node name="StartingHouse3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="StartingHouse3" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(745.667, 296)
 rotation = 0.366519
 scale = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_6nqin")
 
-[node name="EnemyHouse2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="EnemyHouse2" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(-15.6667, 308.333)
 rotation = -0.445059
 shape = SubResource("RectangleShape2D_d4f47")
 
-[node name="EnemyHouse3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="EnemyHouse3" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(26.6667, 307.333)
 rotation = 0.436332
 shape = SubResource("RectangleShape2D_d4f47")
 
-[node name="Tree" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1330.33, 343)
+[node name="Tree" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
+position = Vector2(1330.33, 353.5)
 scale = Vector2(3.66667, 2.86667)
 shape = SubResource("RectangleShape2D_mk2dp")
 
-[node name="Tree2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1331.33, 376.833)
-shape = SubResource("RectangleShape2D_sgevk")
+[node name="Area2D" type="Area2D" parent="NavigationRegion2D/StaticBody2D"]
 
-[node name="Area2D" type="Area2D" parent="StaticBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
-position = Vector2(714, 409.917)
-shape = SubResource("RectangleShape2D_7kbdf")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D/Area2D"]
+position = Vector2(714.333, 408.333)
 
 [node name="Char" type="CharacterBody2D" parent="."]
-position = Vector2(1685, 1218)
+position = Vector2(1996, 1335)
 scale = Vector2(7, 7)
 motion_mode = 1
 script = ExtResource("3_7mxq1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Char"]
-position = Vector2(0, 10.5714)
+position = Vector2(0, -0.0622559)
 scale = Vector2(1, 2.35923)
 shape = SubResource("RectangleShape2D_3wgfq")
 
@@ -129,4 +131,12 @@ texture = ExtResource("4_hsgnn")
 
 [node name="Camera2D" type="Camera2D" parent="Char"]
 
-[connection signal="body_entered" from="StaticBody2D/Area2D" to="." method="_on_door"]
+[node name="Enemys" type="Node2D" parent="."]
+script = ExtResource("6_kq5fj")
+
+[node name="EnemySpawn" type="Timer" parent="Enemys"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="NavigationRegion2D/StaticBody2D/Area2D" to="." method="_on_door"]
+[connection signal="timeout" from="Enemys/EnemySpawn" to="Enemys" method="_on_timer_timeout"]

@@ -84,7 +84,7 @@ shape = SubResource("RectangleShape2D_q68mw")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(294, 181)
+position = Vector2(193.452, -160.976)
 scale = Vector2(7, 7)
 script = ExtResource("2_cp8fw")
 
