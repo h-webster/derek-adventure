@@ -12,8 +12,6 @@ func _ready():
 	
 
 func _physics_process(delta):
-	if SPEED == 600.0 and get_tree().current_scene.name == "Outside":
-		SPEED = 600
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction_x = Input.get_axis("ui_left", "ui_right")
