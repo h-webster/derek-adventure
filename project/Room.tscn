@@ -47,7 +47,7 @@ font_size = 30
 font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtys0"]
-size = Vector2(83.2142, 20)
+size = Vector2(90.4762, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxisv"]
 size = Vector2(120.208, 226.341)
@@ -127,9 +127,9 @@ offset_bottom = 40.0
 [node name="mission" type="TextureRect" parent="UI"]
 layout_mode = 0
 offset_left = -537.5
-offset_top = -315.244
+offset_top = -382.927
 offset_right = -369.5
-offset_bottom = -247.244
+offset_bottom = -314.927
 texture = SubResource("CanvasTexture_v3pro")
 
 [node name="Label" type="Label" parent="UI/mission"]
@@ -184,7 +184,7 @@ offset_top = 36.8852
 offset_right = 246.966
 offset_bottom = 78.8852
 scale = Vector2(0.291139, 0.770492)
-text = "Next - Z"
+text = "Next - C"
 label_settings = SubResource("LabelSettings_ixvrl")
 
 [node name="Colliders" type="Node2D" parent="."]
@@ -193,7 +193,7 @@ label_settings = SubResource("LabelSettings_ixvrl")
 scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Door"]
-position = Vector2(296.488, -108.537)
+position = Vector2(296.429, -114.024)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_gtys0")
 
