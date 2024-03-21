@@ -18,9 +18,9 @@ anchors_preset = 0
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 367.0
+offset_left = 872.0
 offset_top = 41.0
-offset_right = 1620.0
+offset_right = 2125.0
 offset_bottom = 233.0
 text = "Derek's Adventure"
 label_settings = SubResource("LabelSettings_oyvod")
@@ -28,16 +28,16 @@ horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 753.0
-offset_top = 406.0
-offset_right = 1111.0
-offset_bottom = 520.0
+offset_left = 1315.0
+offset_top = 649.0
+offset_right = 1673.0
+offset_bottom = 763.0
 theme_override_font_sizes/font_size = 70
 text = "Play"
 script = ExtResource("1_6ljsi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(931, 955)
+position = Vector2(1488, 1251)
 scale = Vector2(10, 10)
 texture = ExtResource("2_nq7fx")
 script = ExtResource("3_r4gqj")

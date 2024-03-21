@@ -2,6 +2,7 @@ extends TextureRect
 
 var dialouge_queue = []
 var dialouge_name = ""
+var i = 0
 
 func ended():
 	if dialouge_name == "Grandma":

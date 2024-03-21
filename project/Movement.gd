@@ -23,13 +23,13 @@ func _physics_process(delta):
 		return
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction_x = Input.get_axis("ui_left", "ui_right")
+	var direction_x = Input.get_axis("Left", "Right")
 	if direction_x:
 		velocity.x = direction_x * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	var direction_y = Input.get_axis("ui_up", "ui_down")
+	var direction_y = Input.get_axis("Up", "Down")
 	if direction_y:
 		velocity.y = direction_y * SPEED
 	else:
@@ -55,12 +55,20 @@ func display_menu():
 		display = $UI/display
 	
 	var collisions = area.get_overlapping_bodies()
+	var areas = area.get_overlapping_areas()
 	var can_interact = ["Door", "Grandma"]
+	var can_interact_area = ["Grape"]
 	var hit = false
+	
 	for collision in collisions:
 		if collision.name in can_interact:
 			hit = true
 			break
+	for collision in areas:
+		if collision.name in can_interact_area:
+			hit = true
+			break
+			
 	display.visible = hit
 	
 	if hit:
@@ -73,10 +81,17 @@ func interact():
 	
 	var area = $Collisions
 	var collisions = area.get_overlapping_bodies()
+	var areas = area.get_overlapping_areas()
 	for collision in collisions:
 		if collision.name == "Door" and Global.quest == 1:
 			Global.quest = 2
 			get_tree().change_scene_to_file("res://Outside.tscn")
+		elif collision.name == "Door" and Global.quest == 0:
+			dialouge.show_dialouge("none", ["I need to talk to my Grandma first"])
 		elif collision.name == "Grandma":
-			dialouge.show_dialouge("Grandma", ["Grandma: Derek...", "Grandma: I'm very sick", "Grandma: Can you please grab \nstuff for me?", "Grandma: I need the following items", "Grandma: Grapes", "Grandma: A hot dog", "Grandma: A Carrot", "Grandma: Soda", "Grandma: Wata", "Grandma: and some percocets", "Grandma: Be careful Derek, it's \ndangerous out there"])
+			dialouge.show_dialouge("Grandma", ["Grandma: Derekkkkk!!!!", "Grandma: I'm very sick", "Grandma: Can you please grab \nstuff for me?", "Grandma: I need the following items", "Grandma: Grapes", "Grandma: A hot dog", "Grandma: A Carrot", "Grandma: Soda", "Grandma: Wata", "Grandma: and some percocets", "Grandma: Be careful Derek, it's \ndangerous out there"])
+	
+	#items = ["Grape"]
+	#for collision in areas:
+	#	if collison.name in 
 
