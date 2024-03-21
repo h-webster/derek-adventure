@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bywhhtyhir6jb"]
+[gd_scene load_steps=26 format=3 uid="uid://bywhhtyhir6jb"]
 
 [ext_resource type="Texture2D" uid="uid://r0i8odc2tso7" path="res://Images/Enviroment/Outside/Map1.png" id="1_vqcc3"]
 [ext_resource type="Script" path="res://Collisions.gd" id="1_wir8h"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Hearts.gd" id="7_1ndoj"]
 [ext_resource type="Texture2D" uid="uid://cqjddjx2610t7" path="res://Images/heart-pixilart.png" id="8_ccw5h"]
 [ext_resource type="PackedScene" uid="uid://dxu6k34vflugy" path="res://heart.tscn" id="8_dhrdn"]
+[ext_resource type="Script" path="res://dialouge.gd" id="9_swmwr"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_l7bgy"]
 vertices = PackedVector2Array(1518, -327, 1516, 287, 1516, -316, -309, -327, -294, -316, -322, 695, -294, 692, 1514, 695, -240, 692, -240, 688, 1462, 688, 1462, 692, 1514, 692, -240, 654, 648, 121, 1165, 110, 1202, 110, 1462, 654, 1229, 86, 1229, 9, 1462, -282, -240, -282, 1136, 9, 576, -38, -79, 108, 485, -6, 485, 121, -79, 5, 648, -6, 1136, 86, 1165, 86, 1202, 86, -202, 108, -202, 9, -152, -14, -152, -25, 638, -6, 576, -30, 566, -34, 562, -36, -88, 5, 559, -31, 496, -6)
@@ -37,11 +38,26 @@ size = Vector2(54.9321, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mk2dp"]
 size = Vector2(20, 27.3256)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wgfq"]
-size = Vector2(16.2857, 9.63562)
+[sub_resource type="CanvasTexture" id="CanvasTexture_hc84l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7kaeg"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_e46yx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n4d0l"]
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_al1m0"]
+font_size = 30
+font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykllp"]
 size = Vector2(14, 22.4286)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wgfq"]
+size = Vector2(16.2857, 9.63562)
 
 [node name="Outside" type="Node2D"]
 script = ExtResource("1_wir8h")
@@ -140,10 +156,51 @@ offset_top = -191.0
 offset_right = 146.143
 offset_bottom = -151.0
 
+[node name="mission" type="TextureRect" parent="Char/UI"]
+layout_mode = 0
+offset_left = -243.572
+offset_top = 114.429
+offset_right = -75.5716
+offset_bottom = 182.429
+scale = Vector2(0.348572, 0.325714)
+texture = SubResource("CanvasTexture_hc84l")
+
+[node name="Label" type="Label" parent="Char/UI/mission"]
+layout_mode = 0
+offset_left = 22.619
+offset_top = 7.92683
+offset_right = 149.619
+offset_bottom = 56.9268
+text = "Mission: 
+Talk to grandma"
+label_settings = SubResource("LabelSettings_7kaeg")
+
+[node name="display" type="TextureRect" parent="Char/UI"]
+visible = false
+layout_mode = 0
+offset_left = -178.857
+offset_top = 144.143
+offset_right = -10.8573
+offset_bottom = 212.143
+scale = Vector2(0.285714, 0.285715)
+texture = SubResource("CanvasTexture_hc84l")
+
+[node name="Label" type="Label" parent="Char/UI/display"]
+layout_mode = 0
+offset_left = 24.4048
+offset_top = 23.7805
+offset_right = 151.405
+offset_bottom = 72.7805
+text = "Interact - E"
+label_settings = SubResource("LabelSettings_7kaeg")
+
 [node name="Hearts" type="Control" parent="Char/UI"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 127.286
+offset_top = 45.4286
+offset_right = 167.286
+offset_bottom = 85.4286
+scale = Vector2(0.742857, 0.657143)
 script = ExtResource("7_1ndoj")
 
 [node name="Heart1" parent="Char/UI/Hearts" instance=ExtResource("8_dhrdn")]
@@ -170,16 +227,46 @@ offset_right = -132.143
 offset_bottom = 141.571
 texture = ExtResource("8_ccw5h")
 
-[node name="Area2D" type="Area2D" parent="Char"]
+[node name="dialouge" type="TextureRect" parent="Char/UI"]
+visible = false
+offset_left = -238.143
+offset_top = 238.714
+offset_right = -70.143
+offset_bottom = 306.714
+scale = Vector2(1.56857, 0.41352)
+texture = SubResource("CanvasTexture_e46yx")
+script = ExtResource("9_swmwr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Char/Area2D"]
-position = Vector2(0, -0.0622559)
-scale = Vector2(1, 2.35923)
-shape = SubResource("RectangleShape2D_3wgfq")
+[node name="Text" type="Label" parent="Char/UI/dialouge"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.324, 1)
+text = "Grandma: Oh no im zestingasdad sdjsadn
+askdndnjnasjdnjsandj"
+label_settings = SubResource("LabelSettings_n4d0l")
+
+[node name="Label2" type="Label" parent="Char/UI/dialouge"]
+layout_mode = 0
+offset_left = 133.966
+offset_top = 36.8852
+offset_right = 246.966
+offset_bottom = 78.8852
+scale = Vector2(0.291139, 0.770492)
+text = "Next - Z"
+label_settings = SubResource("LabelSettings_al1m0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Char"]
 position = Vector2(0.285706, -0.0714874)
 shape = SubResource("RectangleShape2D_ykllp")
+
+[node name="Collisions" type="Area2D" parent="Char"]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Char/Collisions"]
+position = Vector2(0, -0.0622559)
+scale = Vector2(1, 2.35923)
+shape = SubResource("RectangleShape2D_3wgfq")
 
 [node name="Enemys" type="Node2D" parent="."]
 script = ExtResource("6_kq5fj")
@@ -189,5 +276,5 @@ wait_time = 5.0
 autostart = true
 
 [connection signal="body_entered" from="NavigationRegion2D/StaticBody2D/Area2D" to="." method="_on_door"]
-[connection signal="body_entered" from="Char/Area2D" to="Char/UI/Hearts" method="enemy_hit"]
+[connection signal="body_entered" from="Char/Collisions" to="Char/UI/Hearts" method="enemy_hit"]
 [connection signal="timeout" from="Enemys/EnemySpawn" to="Enemys" method="_on_timer_timeout"]

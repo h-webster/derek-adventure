@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cixvlwvj6s0mg"]
+[gd_scene load_steps=21 format=3 uid="uid://cixvlwvj6s0mg"]
 
 [ext_resource type="Texture2D" uid="uid://kuy051edgv4a" path="res://Images/Enviroment/Room/room1-pixilart.png" id="1_wscwu"]
 [ext_resource type="Script" path="res://Movement.gd" id="2_cp8fw"]
 [ext_resource type="Texture2D" uid="uid://mwnylkffcv6p" path="res://Images/Enviroment/Room/room2-pixilart.png" id="2_ua5ih"]
 [ext_resource type="Texture2D" uid="uid://g8hebppdgle3" path="res://Images/Player/base-1-1-pixilart.png" id="3_qk0g1"]
+[ext_resource type="Script" path="res://dialouge.gd" id="5_ychib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3y0x"]
 size = Vector2(20, 409)
@@ -23,14 +24,33 @@ size = Vector2(118, 229)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_601bt"]
 size = Vector2(226, 176)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tma0i"]
-size = Vector2(71, 42.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q68mw"]
 size = Vector2(830.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8q5l"]
-size = Vector2(16.2857, 0.621104)
+size = Vector2(14.2857, 0.621104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tma0i"]
+size = Vector2(93.0606, 87.5866)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_v3pro"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xtbp"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dpwfd"]
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ixvrl"]
+font_size = 30
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtys0"]
+size = Vector2(83.2142, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxisv"]
+size = Vector2(120.208, 226.341)
 
 [node name="Room" type="Node2D"]
 scale = Vector2(1.68, 1.64)
@@ -70,13 +90,6 @@ z_index = 1
 scale = Vector2(2.88, 2.88)
 texture = ExtResource("2_ua5ih")
 
-[node name="DoorCollision" type="Area2D" parent="Room"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/DoorCollision"]
-position = Vector2(297.5, -131.25)
-scale = Vector2(1.10655, 1.70911)
-shape = SubResource("RectangleShape2D_tma0i")
-
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Room"]
 position = Vector2(-3.75, 286)
 shape = SubResource("RectangleShape2D_q68mw")
@@ -89,11 +102,108 @@ scale = Vector2(7, 7)
 script = ExtResource("2_cp8fw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 10.5714)
+position = Vector2(-0.170012, 10.5714)
 scale = Vector2(1, 2.35923)
 shape = SubResource("RectangleShape2D_w8q5l")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("3_qk0g1")
 
-[connection signal="body_entered" from="Room/DoorCollision" to="CharacterBody2D" method="_on_door_collision_body_entered"]
+[node name="Collisions" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(-27.636, 22.9966)
+scale = Vector2(0.142857, 0.142857)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Collisions"]
+position = Vector2(191.667, -156.555)
+scale = Vector2(1.10655, 1.70911)
+shape = SubResource("RectangleShape2D_tma0i")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="mission" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = -537.5
+offset_top = -315.244
+offset_right = -369.5
+offset_bottom = -247.244
+texture = SubResource("CanvasTexture_v3pro")
+
+[node name="Label" type="Label" parent="UI/mission"]
+layout_mode = 0
+offset_left = 22.619
+offset_top = 7.92683
+offset_right = 149.619
+offset_bottom = 56.9268
+text = "Mission: 
+Talk to grandma"
+label_settings = SubResource("LabelSettings_8xtbp")
+
+[node name="display" type="TextureRect" parent="UI"]
+offset_left = 113.095
+offset_top = -297.561
+offset_right = 281.095
+offset_bottom = -229.561
+texture = SubResource("CanvasTexture_v3pro")
+
+[node name="Label" type="Label" parent="UI/display"]
+layout_mode = 0
+offset_left = 24.4048
+offset_top = 23.7805
+offset_right = 151.405
+offset_bottom = 72.7805
+text = "Interact - E"
+label_settings = SubResource("LabelSettings_8xtbp")
+
+[node name="dialouge" type="TextureRect" parent="UI"]
+visible = false
+offset_left = -490.476
+offset_top = 191.463
+offset_right = -322.476
+offset_bottom = 259.463
+scale = Vector2(5.64286, 1.48781)
+texture = SubResource("CanvasTexture_v3pro")
+script = ExtResource("5_ychib")
+
+[node name="Text" type="Label" parent="UI/dialouge"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.324, 1)
+text = "Grandma: Oh no im zestingasdad sdjsadn
+askdndnjnasjdnjsandj"
+label_settings = SubResource("LabelSettings_dpwfd")
+
+[node name="Label2" type="Label" parent="UI/dialouge"]
+layout_mode = 0
+offset_left = 133.966
+offset_top = 36.8852
+offset_right = 246.966
+offset_bottom = 78.8852
+scale = Vector2(0.291139, 0.770492)
+text = "Next - Z"
+label_settings = SubResource("LabelSettings_ixvrl")
+
+[node name="Colliders" type="Node2D" parent="."]
+
+[node name="Door" type="StaticBody2D" parent="Colliders"]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Door"]
+position = Vector2(296.488, -108.537)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_gtys0")
+
+[node name="Grandma" type="StaticBody2D" parent="Colliders"]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Grandma"]
+position = Vector2(-346.429, -29.8781)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_cxisv")
+
+[connection signal="body_entered" from="CharacterBody2D/Collisions" to="CharacterBody2D" method="_on_door_collision_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/Collisions" to="CharacterBody2D" method="_on_door_collision_body_exited"]
