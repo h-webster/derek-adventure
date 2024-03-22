@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://fc1qrw0qrcbo"]
+[gd_scene load_steps=11 format=3 uid="uid://fc1qrw0qrcbo"]
 
 [ext_resource type="Script" path="res://Button.gd" id="1_6ljsi"]
 [ext_resource type="Texture2D" uid="uid://g8hebppdgle3" path="res://Images/Player/base-1-1-pixilart.png" id="2_nq7fx"]
 [ext_resource type="Script" path="res://SpriteSelect.gd" id="3_r4gqj"]
+[ext_resource type="Texture2D" uid="uid://cmejq4gni76b7" path="res://Images/Items/custom-button-up-pixilart.png" id="4_i8jg1"]
 [ext_resource type="Texture2D" uid="uid://bj4sf16jqpfmr" path="res://Images/Solid_black.svg.png" id="4_t3ppg"]
-[ext_resource type="Texture2D" uid="uid://bc8d000idrbnf" path="res://Images/StartScreen/pixilart-drawing (7) copy.png" id="5_35cfk"]
-[ext_resource type="Texture2D" uid="uid://dadhikmrfr161" path="res://Images/StartScreen/pixilart-drawing (7).png" id="6_bwtx6"]
-[ext_resource type="Texture2D" uid="uid://bst4k5qlf1gys" path="res://Images/StartScreen/custom-3-pixilart copy.png" id="7_mnl3a"]
-[ext_resource type="Texture2D" uid="uid://ccc3qdbfcv8mo" path="res://Images/StartScreen/custom-3-pixilart.png" id="8_l8vuj"]
+[ext_resource type="Texture2D" uid="uid://bwjrxsmf7wr8e" path="res://Images/Items/custom-back-pixilart.png" id="5_0gogl"]
+[ext_resource type="Texture2D" uid="uid://cfhaud40tng8n" path="res://Images/Items/custom-hair-pixilart.png" id="6_2tdom"]
+[ext_resource type="Texture2D" uid="uid://nyuvgbtck48p" path="res://Images/Items/custom-costume-pixilart.png" id="7_kjnqm"]
+[ext_resource type="Texture2D" uid="uid://ce1eeuuc2hkcl" path="res://Images/Items/custom-play-pixilart (1).png" id="8_qoe4e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oyvod"]
 font_size = 140
@@ -37,16 +38,6 @@ text = "Derek's Adventure"
 label_settings = SubResource("LabelSettings_oyvod")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1315.0
-offset_top = 649.0
-offset_right = 1673.0
-offset_bottom = 763.0
-theme_override_font_sizes/font_size = 70
-text = "Play"
-script = ExtResource("1_6ljsi")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(1482, 1241)
@@ -61,11 +52,11 @@ offset_right = 70.0
 offset_bottom = 9.6
 scale = Vector2(0.26, 0.259999)
 pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
-texture_normal = ExtResource("5_35cfk")
-texture_pressed = ExtResource("5_35cfk")
-texture_hover = ExtResource("5_35cfk")
-texture_disabled = ExtResource("5_35cfk")
-texture_focused = ExtResource("5_35cfk")
+texture_normal = ExtResource("4_i8jg1")
+texture_pressed = ExtResource("4_i8jg1")
+texture_hover = ExtResource("4_i8jg1")
+texture_disabled = ExtResource("4_i8jg1")
+texture_focused = ExtResource("4_i8jg1")
 stretch_mode = 0
 
 [node name="LeftHair" type="TextureButton" parent="Sprite2D"]
@@ -76,11 +67,11 @@ offset_bottom = 20.0
 rotation = 3.14159
 scale = Vector2(0.26, 0.26)
 pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
-texture_normal = ExtResource("5_35cfk")
-texture_pressed = ExtResource("5_35cfk")
-texture_hover = ExtResource("5_35cfk")
-texture_disabled = ExtResource("5_35cfk")
-texture_focused = ExtResource("5_35cfk")
+texture_normal = ExtResource("4_i8jg1")
+texture_pressed = ExtResource("4_i8jg1")
+texture_hover = ExtResource("4_i8jg1")
+texture_disabled = ExtResource("4_i8jg1")
+texture_focused = ExtResource("4_i8jg1")
 stretch_mode = 0
 
 [node name="RightCostume" type="TextureButton" parent="Sprite2D"]
@@ -90,11 +81,11 @@ offset_right = 70.0
 offset_bottom = 62.2
 scale = Vector2(0.26, 0.259999)
 pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
-texture_normal = ExtResource("5_35cfk")
-texture_pressed = ExtResource("5_35cfk")
-texture_hover = ExtResource("5_35cfk")
-texture_disabled = ExtResource("5_35cfk")
-texture_focused = ExtResource("5_35cfk")
+texture_normal = ExtResource("4_i8jg1")
+texture_pressed = ExtResource("4_i8jg1")
+texture_hover = ExtResource("4_i8jg1")
+texture_disabled = ExtResource("4_i8jg1")
+texture_focused = ExtResource("4_i8jg1")
 stretch_mode = 0
 
 [node name="LeftCostume" type="TextureButton" parent="Sprite2D"]
@@ -105,30 +96,44 @@ offset_bottom = 71.6
 rotation = 3.14159
 scale = Vector2(0.26, 0.26)
 pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
-texture_normal = ExtResource("5_35cfk")
-texture_pressed = ExtResource("5_35cfk")
-texture_hover = ExtResource("5_35cfk")
-texture_disabled = ExtResource("5_35cfk")
-texture_focused = ExtResource("5_35cfk")
+texture_normal = ExtResource("4_i8jg1")
+texture_pressed = ExtResource("4_i8jg1")
+texture_hover = ExtResource("4_i8jg1")
+texture_disabled = ExtResource("4_i8jg1")
+texture_focused = ExtResource("4_i8jg1")
 stretch_mode = 0
 
 [node name="PlayerBackground" type="Sprite2D" parent="."]
 position = Vector2(1490, 1241)
 scale = Vector2(4.3227, 3.67673)
-texture = ExtResource("6_bwtx6")
+texture = ExtResource("5_0gogl")
 
 [node name="Hair" type="Sprite2D" parent="."]
 position = Vector2(1500, 988)
 scale = Vector2(4.3227, 3.67673)
-texture = ExtResource("7_mnl3a")
+texture = ExtResource("6_2tdom")
 
 [node name="Costume" type="Sprite2D" parent="."]
 position = Vector2(1500, 1510)
 scale = Vector2(4.3227, 3.67673)
-texture = ExtResource("8_l8vuj")
+texture = ExtResource("7_kjnqm")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 932.0
+offset_top = 510.0
+offset_right = 1052.0
+offset_bottom = 550.0
+scale = Vector2(9.24, 9.92169)
+texture_normal = ExtResource("8_qoe4e")
+texture_pressed = ExtResource("8_qoe4e")
+texture_hover = ExtResource("8_qoe4e")
+texture_disabled = ExtResource("8_qoe4e")
+texture_focused = ExtResource("8_qoe4e")
+script = ExtResource("1_6ljsi")
+
 [connection signal="pressed" from="Sprite2D/RightHair" to="Sprite2D" method="_on_right_hair"]
 [connection signal="pressed" from="Sprite2D/LeftHair" to="Sprite2D" method="_on_left_hair"]
 [connection signal="pressed" from="Sprite2D/RightCostume" to="Sprite2D" method="_on_right_costume"]
 [connection signal="pressed" from="Sprite2D/LeftCostume" to="Sprite2D" method="_on_left_costume"]
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

@@ -91,7 +91,7 @@ func interact():
 		elif collision.name == "Door" and Global.quest == 0:
 			dialouge.show_dialouge("none", ["I need to talk to my Grandma first"])
 		elif collision.name == "Grandma" and Global.quest != 3:
-			dialouge.show_dialouge("Grandma", ["Grandma: Derekkkkk!!!!", "Grandma: I'm very sick", "Grandma: Can you please grab \nstuff for me?", "Grandma: I need the following items", "Grandma: Grapes", "Grandma: A hot dog", "Grandma: A Carrot", "Grandma: Soda", "Grandma: Water", "Grandma: and some pills", "Grandma: Be careful Derek, it's \ndangerous out there"])
+			dialouge.show_dialouge("Grandma", ["Grandma: Derekkkkk!!!!", "Grandma: I'm very sick", "Grandma: Can you please grab \nstuff for me?", "Grandma: I need the following items", "Grandma: Grapes, a hot dog, \na carrot, soda", "Grandma: Water and some pills", "Grandma: Be careful Derek, it's \ndangerous out there"])
 		elif collision.name == "House" and Global.quest != 3:
 			dialouge.show_dialouge("none", ["Grab the items!!!"])
 		elif collision.name == "House" and Global.quest == 3:
