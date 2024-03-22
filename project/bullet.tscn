@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv538mjg0jtr0"]
+
+[ext_resource type="Texture2D" uid="uid://i42qbnmqd5t8" path="res://Images/Items/item-3-pixilart.png" id="1_0x1iw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_81cq1"]
+radius = 3.0
+height = 18.2857
+
+[node name="Bullet" type="CharacterBody2D"]
+scale = Vector2(0.448454, 0.430322)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0x1iw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_81cq1")

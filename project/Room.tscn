@@ -143,6 +143,7 @@ Talk to grandma"
 label_settings = SubResource("LabelSettings_8xtbp")
 
 [node name="display" type="TextureRect" parent="UI"]
+layout_mode = 0
 offset_left = 113.095
 offset_top = -297.561
 offset_right = 281.095
@@ -160,6 +161,7 @@ label_settings = SubResource("LabelSettings_8xtbp")
 
 [node name="dialouge" type="TextureRect" parent="UI"]
 visible = false
+layout_mode = 0
 offset_left = -490.476
 offset_top = 191.463
 offset_right = -322.476
@@ -190,19 +192,15 @@ label_settings = SubResource("LabelSettings_ixvrl")
 [node name="Colliders" type="Node2D" parent="."]
 
 [node name="Door" type="StaticBody2D" parent="Colliders"]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Door"]
 position = Vector2(296.429, -114.024)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_gtys0")
 
 [node name="Grandma" type="StaticBody2D" parent="Colliders"]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Grandma"]
 position = Vector2(-346.429, -29.8781)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_cxisv")
 
 [connection signal="body_entered" from="CharacterBody2D/Collisions" to="CharacterBody2D" method="_on_door_collision_body_entered"]

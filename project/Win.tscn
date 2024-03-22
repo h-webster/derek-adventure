@@ -18,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 1136.0
 offset_top = 349.0
 offset_right = 1990.0
@@ -26,6 +27,7 @@ text = "You Win!"
 label_settings = SubResource("LabelSettings_gv75c")
 
 [node name="Label2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 870.0
 offset_top = 840.0
 offset_right = 2241.0
@@ -36,6 +38,7 @@ Team Leader: Arash"
 label_settings = SubResource("LabelSettings_kr56f")
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1261.0
 offset_top = 630.0
 offset_right = 1704.0

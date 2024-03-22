@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bywhhtyhir6jb"]
+[gd_scene load_steps=42 format=3 uid="uid://bywhhtyhir6jb"]
 
 [ext_resource type="Texture2D" uid="uid://r0i8odc2tso7" path="res://Images/Enviroment/Outside/Map1.png" id="1_vqcc3"]
 [ext_resource type="Script" path="res://Collisions.gd" id="1_wir8h"]
@@ -10,7 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://cqjddjx2610t7" path="res://Images/heart-pixilart.png" id="8_ccw5h"]
 [ext_resource type="PackedScene" uid="uid://dxu6k34vflugy" path="res://heart.tscn" id="8_dhrdn"]
 [ext_resource type="Script" path="res://dialouge.gd" id="9_swmwr"]
+[ext_resource type="Script" path="res://Gun.gd" id="10_41k1o"]
+[ext_resource type="Texture2D" uid="uid://du0l8q56m3duh" path="res://Images/Items/rotatedgun.png" id="11_gs6sh"]
 [ext_resource type="Texture2D" uid="uid://bdb1gvebyk18n" path="res://Images/Items/item-1-pixilart.png" id="11_ra0b7"]
+[ext_resource type="PackedScene" uid="uid://cv538mjg0jtr0" path="res://bullet.tscn" id="12_ar2cd"]
 [ext_resource type="Texture2D" uid="uid://ep0iq2ksurno" path="res://Images/Items/item-2-pixilart.png" id="12_dk7n1"]
 [ext_resource type="Texture2D" uid="uid://i42qbnmqd5t8" path="res://Images/Items/item-3-pixilart.png" id="13_8hqwu"]
 [ext_resource type="Texture2D" uid="uid://bkug3dv3laxnh" path="res://Images/Items/item-4-pixilart.png" id="14_yw8fn"]
@@ -436,17 +439,24 @@ label_settings = SubResource("LabelSettings_al1m0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Char"]
 position = Vector2(0.285706, 10.2143)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ykllp")
 
 [node name="Collisions" type="Area2D" parent="Char"]
 position = Vector2(0, 0.428571)
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Char/Collisions"]
 position = Vector2(0, -0.0622559)
 scale = Vector2(1, 2.35923)
 shape = SubResource("RectangleShape2D_3wgfq")
+
+[node name="Gun" type="CharacterBody2D" parent="Char"]
+visible = false
+script = ExtResource("10_41k1o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Char/Gun"]
+texture = ExtResource("11_gs6sh")
+
+[node name="Bullet" parent="Char/Gun" instance=ExtResource("12_ar2cd")]
 
 [node name="Enemys" type="Node2D" parent="."]
 script = ExtResource("6_kq5fj")
@@ -458,7 +468,6 @@ autostart = true
 [node name="Colliders" type="Node2D" parent="."]
 
 [node name="House" type="StaticBody2D" parent="Colliders"]
-scale = Vector2(1, 1)
 
 [node name="House" type="CollisionShape2D" parent="Colliders/House"]
 position = Vector2(2142, 1206)
