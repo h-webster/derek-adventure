@@ -44,6 +44,8 @@ func _physics_process(delta):
 		mission.text = "Mission: \n" + Global.quests[Global.quest]
 	else:
 		mission.text = "Mission: \n" + "Collect items: " + str(Global.items) + "/6"
+		if Global.items == 6:
+			Global.quest = 3
 	
 
 func display_menu():
@@ -56,8 +58,8 @@ func display_menu():
 	
 	var collisions = area.get_overlapping_bodies()
 	var areas = area.get_overlapping_areas()
-	var can_interact = ["Door", "Grandma"]
-	var can_interact_area = ["Grape"]
+	var can_interact = ["Door", "Grandma", "House"]
+	var can_interact_area = ["Grape", "Hotdog", "Carrot", "Water", "Pills", "Soda"]
 	var hit = false
 	
 	for collision in collisions:
@@ -88,10 +90,19 @@ func interact():
 			get_tree().change_scene_to_file("res://Outside.tscn")
 		elif collision.name == "Door" and Global.quest == 0:
 			dialouge.show_dialouge("none", ["I need to talk to my Grandma first"])
-		elif collision.name == "Grandma":
-			dialouge.show_dialouge("Grandma", ["Grandma: Derekkkkk!!!!", "Grandma: I'm very sick", "Grandma: Can you please grab \nstuff for me?", "Grandma: I need the following items", "Grandma: Grapes", "Grandma: A hot dog", "Grandma: A Carrot", "Grandma: Soda", "Grandma: Wata", "Grandma: and some percocets", "Grandma: Be careful Derek, it's \ndangerous out there"])
-	
-	#items = ["Grape"]
-	#for collision in areas:
-	#	if collison.name in 
+		elif collision.name == "Grandma" and Global.quest != 3:
+			dialouge.show_dialouge("Grandma", ["Grandma: Derekkkkk!!!!", "Grandma: I'm very sick", "Grandma: Can you please grab \nstuff for me?", "Grandma: I need the following items", "Grandma: Grapes", "Grandma: A hot dog", "Grandma: A Carrot", "Grandma: Soda", "Grandma: Water", "Grandma: and some pills", "Grandma: Be careful Derek, it's \ndangerous out there"])
+		elif collision.name == "House" and Global.quest != 3:
+			dialouge.show_dialouge("none", ["Grab the items!!!"])
+		elif collision.name == "House" and Global.quest == 3:
+			get_tree().change_scene_to_file("res://Room.tscn")
+		elif collision.name == "Grandma" and Global.quest == 3:
+			dialouge.show_dialouge("Finish", ["Grandma: OH MY DEREKKK!!!", "Grandma: Thank you for all these items!"])
+		elif collision.name == "Door" and Global.quest == 3:
+			dialouge.show_dialouge("none", ["I don't need to go outside"])
+	var items = ["Grape", "Hotdog", "Carrot", "Water", "Pills", "Soda"]
+	for collision in areas:
+		if collision.name in items:
+			collision.get_parent().queue_free()
+			Global.items += 1
 

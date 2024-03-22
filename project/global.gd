@@ -4,7 +4,7 @@ var sel_costume = 1
 var sel_hair = 1
 
 var quest = 0
-var quests = ["Talk to grandma", "Go outside", "item"]
+var quests = ["Talk to grandma", "Go outside", "item", "Return the items"]
 var items = 0
 
 var enemy_stats = {
