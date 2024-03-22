@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuyx4vq0mpe5g"]
+[gd_scene load_steps=4 format=3 uid="uid://cuyx4vq0mpe5g"]
 
 [ext_resource type="Script" path="res://restart.gd" id="1_wpmbr"]
 
@@ -7,6 +7,9 @@ font_size = 150
 font_color = Color(1, 0, 0, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kjkt4"]
+font_size = 70
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -18,18 +21,29 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 518.0
+offset_left = 1014.0
 offset_top = 349.0
-offset_right = 1372.0
+offset_right = 1868.0
 offset_bottom = 554.0
 text = "Game Over!"
 label_settings = SubResource("LabelSettings_kf1e7")
 
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 831.0
+offset_top = 840.0
+offset_right = 2202.0
+offset_bottom = 1134.0
+text = "Artist and Level Designer: Zach
+Developer and Sound Designer: Harrison
+Team Leader: Arash"
+label_settings = SubResource("LabelSettings_kjkt4")
+
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 709.0
+offset_left = 1173.0
 offset_top = 630.0
-offset_right = 1152.0
+offset_right = 1616.0
 offset_bottom = 792.0
 theme_override_font_sizes/font_size = 60
 text = "Restart"

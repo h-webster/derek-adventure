@@ -179,12 +179,12 @@ label_settings = SubResource("LabelSettings_dpwfd")
 
 [node name="Label2" type="Label" parent="UI/dialouge"]
 layout_mode = 0
-offset_left = 133.966
-offset_top = 36.8852
-offset_right = 246.966
-offset_bottom = 78.8852
-scale = Vector2(0.291139, 0.770492)
-text = "Next - C"
+offset_left = 111.92
+offset_top = 37.7049
+offset_right = 361.92
+offset_bottom = 79.7049
+scale = Vector2(0.21941, 0.770492)
+text = "Next - C / Prev - Z"
 label_settings = SubResource("LabelSettings_ixvrl")
 
 [node name="Colliders" type="Node2D" parent="."]

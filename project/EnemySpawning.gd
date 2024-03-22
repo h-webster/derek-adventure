@@ -4,7 +4,7 @@ extends Node2D
 @onready var Ghost = preload("res://Ghost.tscn")
 @onready var Slime = preload("res://Slime.tscn")
 
-
+var spawn_position = 0
 
 func _on_timer_timeout():
 	spawn_enemy()
@@ -23,7 +23,11 @@ func spawn_enemy():
 		enemy_instance = Slime.instantiate()
 	add_child(enemy_instance)
 	
-	enemy_instance.global_position = Vector2(87, 1251)
+	var positions = [Vector2(87, 1251), Vector2(1293, 2158), Vector2(3179, 2780), Vector2(4675, 2339), Vector2(4037, 427)]
+	enemy_instance.global_position = positions[spawn_position]
+	spawn_position += 1
+	if spawn_position == positions.size():
+		spawn_position = 0
 	
 	enemy_instance.health = Global.enemy_stats[sel_enemy]["Health"]
 	enemy_instance.speed = Global.enemy_stats[sel_enemy]["Speed"]
