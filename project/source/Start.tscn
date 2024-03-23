@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://fc1qrw0qrcbo"]
+[gd_scene load_steps=13 format=3 uid="uid://fc1qrw0qrcbo"]
 
 [ext_resource type="Script" path="res://Button.gd" id="1_6ljsi"]
 [ext_resource type="Texture2D" uid="uid://g8hebppdgle3" path="res://Images/Player/base-1-1-pixilart.png" id="2_nq7fx"]
@@ -6,9 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://cmejq4gni76b7" path="res://Images/Items/custom-button-up-pixilart.png" id="4_i8jg1"]
 [ext_resource type="Texture2D" uid="uid://bj4sf16jqpfmr" path="res://Images/Solid_black.svg.png" id="4_t3ppg"]
 [ext_resource type="Texture2D" uid="uid://bwjrxsmf7wr8e" path="res://Images/Items/custom-back-pixilart.png" id="5_0gogl"]
+[ext_resource type="Texture2D" uid="uid://chsvgt3gbc2v1" path="res://Images/Items/custom-button-down-pixilart (1).png" id="5_j3tyv"]
 [ext_resource type="Texture2D" uid="uid://cfhaud40tng8n" path="res://Images/Items/custom-hair-pixilart.png" id="6_2tdom"]
 [ext_resource type="Texture2D" uid="uid://nyuvgbtck48p" path="res://Images/Items/custom-costume-pixilart.png" id="7_kjnqm"]
 [ext_resource type="Texture2D" uid="uid://ce1eeuuc2hkcl" path="res://Images/Items/custom-play-pixilart (1).png" id="8_qoe4e"]
+[ext_resource type="AudioStream" uid="uid://1gwj686aj4gs" path="res://Sounds/Music/Start.wav" id="11_680nb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oyvod"]
 font_size = 140
@@ -53,8 +55,8 @@ offset_bottom = 9.6
 scale = Vector2(0.26, 0.259999)
 pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
 texture_normal = ExtResource("4_i8jg1")
-texture_pressed = ExtResource("4_i8jg1")
-texture_hover = ExtResource("4_i8jg1")
+texture_pressed = ExtResource("5_j3tyv")
+texture_hover = ExtResource("5_j3tyv")
 texture_disabled = ExtResource("4_i8jg1")
 texture_focused = ExtResource("4_i8jg1")
 stretch_mode = 0
@@ -68,8 +70,8 @@ rotation = 3.14159
 scale = Vector2(0.26, 0.26)
 pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
 texture_normal = ExtResource("4_i8jg1")
-texture_pressed = ExtResource("4_i8jg1")
-texture_hover = ExtResource("4_i8jg1")
+texture_pressed = ExtResource("5_j3tyv")
+texture_hover = ExtResource("5_j3tyv")
 texture_disabled = ExtResource("4_i8jg1")
 texture_focused = ExtResource("4_i8jg1")
 stretch_mode = 0
@@ -82,8 +84,8 @@ offset_bottom = 62.2
 scale = Vector2(0.26, 0.259999)
 pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
 texture_normal = ExtResource("4_i8jg1")
-texture_pressed = ExtResource("4_i8jg1")
-texture_hover = ExtResource("4_i8jg1")
+texture_pressed = ExtResource("5_j3tyv")
+texture_hover = ExtResource("5_j3tyv")
 texture_disabled = ExtResource("4_i8jg1")
 texture_focused = ExtResource("4_i8jg1")
 stretch_mode = 0
@@ -97,11 +99,12 @@ rotation = 3.14159
 scale = Vector2(0.26, 0.26)
 pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
 texture_normal = ExtResource("4_i8jg1")
-texture_pressed = ExtResource("4_i8jg1")
-texture_hover = ExtResource("4_i8jg1")
+texture_pressed = ExtResource("5_j3tyv")
+texture_hover = ExtResource("5_j3tyv")
 texture_disabled = ExtResource("4_i8jg1")
 texture_focused = ExtResource("4_i8jg1")
 stretch_mode = 0
+flip_v = true
 
 [node name="PlayerBackground" type="Sprite2D" parent="."]
 position = Vector2(1490, 1241)
@@ -131,6 +134,10 @@ texture_hover = ExtResource("8_qoe4e")
 texture_disabled = ExtResource("8_qoe4e")
 texture_focused = ExtResource("8_qoe4e")
 script = ExtResource("1_6ljsi")
+
+[node name="Start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_680nb")
+autoplay = true
 
 [connection signal="pressed" from="Sprite2D/RightHair" to="Sprite2D" method="_on_right_hair"]
 [connection signal="pressed" from="Sprite2D/LeftHair" to="Sprite2D" method="_on_left_hair"]

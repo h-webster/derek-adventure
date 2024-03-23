@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var SPEED = 600.0
 const JUMP_VELOCITY = -400.0
-
+@onready var item_sound = $ItemPickup
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var dialouge
@@ -104,5 +104,6 @@ func interact():
 	for collision in areas:
 		if collision.name in items:
 			collision.get_parent().queue_free()
+			item_sound.play()
 			Global.items += 1
 
