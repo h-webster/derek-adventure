@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuyx4vq0mpe5g"]
+[gd_scene load_steps=5 format=3 uid="uid://cuyx4vq0mpe5g"]
 
 [ext_resource type="Script" path="res://restart.gd" id="1_wpmbr"]
+[ext_resource type="AudioStream" uid="uid://chnugfjaf1egc" path="res://Sounds/Music/Loss.wav" id="2_71p4f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kf1e7"]
 font_size = 150
@@ -48,5 +49,9 @@ offset_bottom = 792.0
 theme_override_font_sizes/font_size = 60
 text = "Restart"
 script = ExtResource("1_wpmbr")
+
+[node name="Loss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_71p4f")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

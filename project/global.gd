@@ -8,7 +8,7 @@ var quests = ["Talk to grandma", "Go outside", "item", "Return the items"]
 var items = 0
 
 var enemy_stats = {
-	"Ghost" : {"Health" : 4, "Speed" : 650},
+	"Ghost" : {"Health" : 4, "Speed" : 600},
 	"Enemy" : {"Health" : 3, "Speed" : 400},
 	"Slime" : {"Health" : 1, "Speed" : 300}
 }

@@ -1,10 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://cixvlwvj6s0mg"]
+[gd_scene load_steps=23 format=3 uid="uid://cixvlwvj6s0mg"]
 
 [ext_resource type="Texture2D" uid="uid://kuy051edgv4a" path="res://Images/Enviroment/Room/room1-pixilart.png" id="1_wscwu"]
 [ext_resource type="Script" path="res://Movement.gd" id="2_cp8fw"]
 [ext_resource type="Texture2D" uid="uid://mwnylkffcv6p" path="res://Images/Enviroment/Room/room2-pixilart.png" id="2_ua5ih"]
 [ext_resource type="Texture2D" uid="uid://g8hebppdgle3" path="res://Images/Player/base-1-1-pixilart.png" id="3_qk0g1"]
 [ext_resource type="Script" path="res://dialouge.gd" id="5_ychib"]
+[ext_resource type="AudioStream" uid="uid://bf2220jyxbw0g" path="res://Sounds/Sound effects/dialouge.wav" id="6_hkcjx"]
+[ext_resource type="AudioStream" uid="uid://bd7m0rnvk8jfl" path="res://Sounds/Music/Room.wav" id="6_mal6j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3y0x"]
 size = Vector2(20, 409)
@@ -189,6 +191,9 @@ scale = Vector2(0.21941, 0.770492)
 text = "Next - C / Prev - Z"
 label_settings = SubResource("LabelSettings_ixvrl")
 
+[node name="Dialouge" type="AudioStreamPlayer" parent="UI/dialouge"]
+stream = ExtResource("6_hkcjx")
+
 [node name="Colliders" type="Node2D" parent="."]
 
 [node name="Door" type="StaticBody2D" parent="Colliders"]
@@ -202,6 +207,10 @@ shape = SubResource("RectangleShape2D_gtys0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Grandma"]
 position = Vector2(-346.429, -29.8781)
 shape = SubResource("RectangleShape2D_cxisv")
+
+[node name="Room2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mal6j")
+autoplay = true
 
 [connection signal="body_entered" from="CharacterBody2D/Collisions" to="CharacterBody2D" method="_on_door_collision_body_entered"]
 [connection signal="body_exited" from="CharacterBody2D/Collisions" to="CharacterBody2D" method="_on_door_collision_body_exited"]
