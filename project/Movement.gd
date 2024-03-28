@@ -9,6 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var dialouge
 var mission
 func _ready():
+	Global.gun = $Gun
 	$Sprite2D.texture = load("res://Images/Player/base-" + str(Global.sel_hair) + "-" + str(Global.sel_costume) + "-pixilart.png")
 	if get_tree().get_current_scene().get_name() == "Room":
 		dialouge = get_node("../UI/dialouge")
