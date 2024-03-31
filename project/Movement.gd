@@ -10,6 +10,9 @@ var dialouge
 var mission
 func _ready():
 	Global.gun = $Gun
+	if get_tree().get_current_scene().get_name() == "Outside":
+		if Global.last_enter != Vector2(0,0):
+			global_position = Global.last_enter
 	$Sprite2D.texture = load("res://Images/Player/base-" + str(Global.sel_hair) + "-" + str(Global.sel_costume) + "-pixilart.png")
 	if get_tree().get_current_scene().get_name() == "Room":
 		dialouge = get_node("../UI/dialouge")
@@ -41,12 +44,22 @@ func _physics_process(delta):
 	if display_menu() and Input.is_action_just_pressed("Interact"):
 		interact()
 	
-	if Global.quests[Global.quest] != "item":
-		mission.text = "Mission: \n" + Global.quests[Global.quest]
+	if Global.quests[Global.quest] == "person":
+		if Global.person_quest == "":
+			if Global.completed >= 2:
+				mission.text = "Mission: \n" + "Return back home"
+			else:
+				mission.text = "Mission: \n" + "People Helped: " + str(Global.completed) + "/2"
+		else:
+			mission.text = "Mission: \n" + Global.item_quests[Global.person_quest][0] + str(Global.items) + "/" + str(Global.item_quests[Global.person_quest][1])
+			if Global.items == Global.item_quests[Global.person_quest][1]:
+				mission.text = "Mission: \n" + Global.item_quests[Global.person_quest][3] 
+				#Global.items = 0
+				#Global.person_quest = ""
+				#Global.completed += 1
 	else:
-		mission.text = "Mission: \n" + "Collect items: " + str(Global.items) + "/6"
-		if Global.items == 6:
-			Global.quest = 3
+		mission.text = "Mission: \n" + Global.quests[Global.quest]
+		
 	
 
 func display_menu():
@@ -59,8 +72,10 @@ func display_menu():
 	
 	var collisions = area.get_overlapping_bodies()
 	var areas = area.get_overlapping_areas()
-	var can_interact = ["Door", "Grandma", "House"]
-	var can_interact_area = ["Grape", "Hotdog", "Carrot", "Water", "Pills", "Soda"]
+	var can_interact = ["Door", "Grandma", "House", "Jamal", "JamalHouse", "JeffHouse", "Jeff", "Joe", "JoeHouse"]
+	var can_interact_area
+	if Global.person_quest != "":
+		can_interact_area = Global.item_quests[Global.person_quest][2]
 	var hit = false
 	
 	for collision in collisions:
@@ -68,9 +83,10 @@ func display_menu():
 			hit = true
 			break
 	for collision in areas:
-		if collision.name in can_interact_area:
-			hit = true
-			break
+		if Global.person_quest != "":
+			if collision.name in can_interact_area:
+				hit = true
+				break
 			
 	display.visible = hit
 	
@@ -81,30 +97,65 @@ func display_menu():
 func interact():
 	if dialouge.visible:
 		return
-	
 	var area = $Collisions
 	var collisions = area.get_overlapping_bodies()
 	var areas = area.get_overlapping_areas()
 	for collision in collisions:
+		print(collision.name)
 		if collision.name == "Door" and Global.quest == 1:
 			Global.quest = 2
 			get_tree().change_scene_to_file("res://Outside.tscn")
-		elif collision.name == "Door" and Global.quest == 0:
-			dialouge.show_dialouge("none", ["I need to talk to my Grandma first"])
-		elif collision.name == "Grandma" and Global.quest != 3:
-			dialouge.show_dialouge("Grandma", ["Grandma: Derekkkkk!!!!", "Grandma: I'm very sick", "Grandma: Can you please grab \nstuff for me?", "Grandma: I need the following items", "Grandma: Grapes, a hot dog, \na carrot, soda", "Grandma: Water and some pills", "Grandma: Be careful Derek, it's \ndangerous out there"])
-		elif collision.name == "House" and Global.quest != 3:
-			dialouge.show_dialouge("none", ["Grab the items!!!"])
-		elif collision.name == "House" and Global.quest == 3:
-			get_tree().change_scene_to_file("res://Room.tscn")
-		elif collision.name == "Grandma" and Global.quest == 3:
-			dialouge.show_dialouge("Finish", ["Grandma: OH MY DEREKKK!!!", "Grandma: Thank you for all these items!"])
+		elif collision.name == "House" and Global.completed < 2 and Global.person_quest != "":
+			dialouge.show_dialouge("none", ["I need to help at least 2 people"])
+		elif collision.name == "JamalHouse" and (Global.person_quest == ""):
+			Global.last_enter = global_position
+			get_tree().change_scene_to_file("res://JamalRoom.tscn")
+		elif Global.person_quest != "" and (collision.name == "JamalHouse" or collision.name == "Jamal"):
+			if Global.item_quests[Global.person_quest][1] == Global.items:
+				if collision.name == "JamalHouse" and not "Jamal" in Global.completed_people:
+					Global.last_enter = global_position
+					get_tree().change_scene_to_file("res://JamalRoom.tscn")
+				elif collision.name == "Jamal" and Global.person_quest == "thirst":
+					dialouge.show_dialouge("doneJamal", ["THANK YOU DEREK!", "*Drinks water"])
+			elif collision.name == "Jamal" and not "Jamal" in Global.completed_people and Global.person_quest == "thirst":
+				dialouge.show_dialouge("none", ["Help me Derek!!", "I'm very thirsty and\nmy water is unclean", "Please get me an apple, filter\n and a water bottle"])
+		elif collision.name == "Jamal" and Global.person_quest == "" and not "Jamal" in Global.completed_people:
+			dialouge.show_dialouge("jamal", ["Help me Derek!!", "I'm very thirsty and\nmy water is unclean", "Please get me an apple, filter\n and a water bottle"])
+		elif collision.name == "JeffHouse":
+			Global.last_enter = global_position
+			get_tree().change_scene_to_file("res://JeffRoom.tscn")
+		elif collision.name == "JoeHouse":
+			Global.last_enter = global_position
+			get_tree().change_scene_to_file("res://JoeRoom.tscn")
+		elif collision.name == "House" and Global.completed >= 2 and Global.person_quest == "":
+			get_tree().change_scene_to_file("res://Win.tscn")
+		elif collision.name == "Door" and Global.quest == 2:
+			print("what")
+			get_tree().change_scene_to_file("res://Outside.tscn")
 		elif collision.name == "Door" and Global.quest == 3:
 			dialouge.show_dialouge("none", ["I don't need to go outside"])
-	var items = ["Grape", "Hotdog", "Carrot", "Water", "Pills", "Soda"]
+		elif collision.name == "Jeff" and not "Jeff" in Global.completed_people:
+			if Global.person_quest == "":
+				dialouge.show_dialouge("jeff", ["Derek I'm hungry and dirty.", "Please help me by getting \nthese items", "A shirt, pants, banana and \nmeat"])
+			elif Global.item_quests[Global.person_quest][1] == Global.items and Global.person_quest == "hungry":
+				dialouge.show_dialouge("doneJeff", ["Oh Mr.Derek thank youu"])
+			elif Global.item_quests[Global.person_quest][1] != Global.items and Global.person_quest == "hungry":
+				dialouge.show_dialouge("none", ["Please get me my items..."])
+		elif collision.name == "Joe" and not "Joe" in Global.completed_people:
+			if Global.person_quest == "":
+				dialouge.show_dialouge("joe", ["Derek I want education", "But, I don't have any \nmoney", "I need a book, paper, pencil \nand lamp"])
+			elif Global.item_quests[Global.person_quest][1] == Global.items and Global.person_quest == "education":
+				dialouge.show_dialouge("doneJoe", ["Thanks I can now learn anything!"])
+			elif Global.item_quests[Global.person_quest][1] != Global.items and Global.person_quest == "education":
+				dialouge.show_dialouge("none", ["Be careful."])
+	var items = ["none"]
+	if Global.person_quest != "":
+		items = Global.item_quests[Global.person_quest][2]
 	for collision in areas:
-		if collision.name in items:
-			collision.get_parent().queue_free()
-			item_sound.play()
-			Global.items += 1
+		if items[0] != "none":
+			if collision.name in items:
+				Global.items_collected.append(collision.name)
+				collision.get_parent().queue_free()
+				item_sound.play()
+				Global.items += 1
 
