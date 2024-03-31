@@ -18,5 +18,6 @@ func _process(delta):
 	position = transform.x * 17
 
 	if Input.is_action_just_pressed("Shoot"):
+		$Shoot.play()
 		Global.bullets.add_bullet()
 

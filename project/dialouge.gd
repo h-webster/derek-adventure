@@ -11,6 +11,27 @@ func ended():
 		Global.quest = 1
 	elif dialouge_name == "Finish":
 		get_tree().change_scene_to_file("res://Win.tscn")
+	elif dialouge_name == "jamal":
+		Global.person_quest = "thirst"
+	elif dialouge_name == "doneJamal":
+		Global.person_quest = ""
+		Global.items = 0
+		Global.completed += 1
+		Global.completed_people.append("Jamal")
+	elif dialouge_name == "jeff":
+		Global.person_quest = "hungry"
+	elif dialouge_name == "doneJeff":
+		Global.person_quest = ""
+		Global.items = 0
+		Global.completed += 1
+		Global.completed_people.append("Jeff")
+	elif dialouge_name == "joe":
+		Global.person_quest = "education"
+	elif dialouge_name == "doneJoe":
+		Global.person_quest = ""
+		Global.items = 0
+		Global.completed += 1
+		Global.completed_people.append("Joe")
 	dialouge_name = ""
 
 func _process(delta):
