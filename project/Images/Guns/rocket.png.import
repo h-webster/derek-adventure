@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s2knr03hi5pu"
-path="res://.godot/imported/gun-1-pistol-pixilart.png-59db91e18db2a51d47ba439fe299fdc7.ctex"
+uid="uid://bty7ejnesj8dc"
+path="res://.godot/imported/rocket.png-d1f37d5be30a82a54da224c639e1b0c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Items/gun-1-pistol-pixilart.png"
-dest_files=["res://.godot/imported/gun-1-pistol-pixilart.png-59db91e18db2a51d47ba439fe299fdc7.ctex"]
+source_file="res://Images/Guns/rocket.png"
+dest_files=["res://.godot/imported/rocket.png-d1f37d5be30a82a54da224c639e1b0c0.ctex"]
 
 [params]
 

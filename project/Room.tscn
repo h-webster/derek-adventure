@@ -63,7 +63,6 @@ shape = SubResource("RectangleShape2D_b3y0x")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Room"]
 position = Vector2(-77.7738, -114)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hrgg3")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Room"]
@@ -168,8 +167,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 scale = Vector2(0.324, 1)
-text = "Grandma: Oh no im zestingasdad sdjsadn
-askdndnjnasjdnjsandj"
+text = "adahdnasdnjad ajda djasd ajd aj sdjasd"
 label_settings = SubResource("LabelSettings_dpwfd")
 
 [node name="Label2" type="Label" parent="UI/dialouge"]

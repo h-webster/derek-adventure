@@ -11,6 +11,8 @@ func _on_timer_timeout():
 	
 	
 func spawn_enemy():
+	var waits = [7, 3.5, 2, 1]
+	$EnemySpawn.wait_time = waits[Global.completed]
 	var enemies = ["Slime","Slime","Slime","Enemy", "Enemy", "Ghost"]
 	var sel_enemy = enemies[randi() % enemies.size()]
 	

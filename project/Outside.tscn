@@ -1,9 +1,9 @@
-[gd_scene load_steps=59 format=3 uid="uid://bywhhtyhir6jb"]
+[gd_scene load_steps=74 format=3 uid="uid://bywhhtyhir6jb"]
 
 [ext_resource type="Texture2D" uid="uid://r0i8odc2tso7" path="res://Images/Enviroment/Outside/Map1.png" id="1_vqcc3"]
 [ext_resource type="Script" path="res://Collisions.gd" id="1_wir8h"]
+[ext_resource type="Texture2D" uid="uid://c0jcq6auftep3" path="res://Images/Enviroment/Outside/remakemake.png" id="3_0ivfh"]
 [ext_resource type="Script" path="res://Movement.gd" id="3_7mxq1"]
-[ext_resource type="Texture2D" uid="uid://5cisddcrm3p7" path="res://Images/Enviroment/Outside/actualmap.png" id="3_s026a"]
 [ext_resource type="Texture2D" uid="uid://g8hebppdgle3" path="res://Images/Player/base-1-1-pixilart.png" id="4_hsgnn"]
 [ext_resource type="Script" path="res://EnemySpawning.gd" id="6_kq5fj"]
 [ext_resource type="Script" path="res://Hearts.gd" id="7_1ndoj"]
@@ -13,11 +13,15 @@
 [ext_resource type="AudioStream" uid="uid://chilnantmcog5" path="res://Sounds/Sound effects/hurt.wav" id="9_vfhet"]
 [ext_resource type="Script" path="res://Gun.gd" id="10_41k1o"]
 [ext_resource type="AudioStream" uid="uid://bf2220jyxbw0g" path="res://Sounds/Sound effects/dialouge.wav" id="10_op6kb"]
-[ext_resource type="Texture2D" uid="uid://s2knr03hi5pu" path="res://Images/Items/gun-1-pistol-pixilart.png" id="13_ctu0t"]
+[ext_resource type="Texture2D" uid="uid://bm41ldy6o8oqb" path="res://Images/Items/Gun inventory.png" id="12_yieyt"]
+[ext_resource type="Texture2D" uid="uid://s2knr03hi5pu" path="res://Images/Guns/Pistol.png" id="13_ctu0t"]
+[ext_resource type="Script" path="res://Inventory.gd" id="13_tq3ne"]
+[ext_resource type="Texture2D" uid="uid://cub3oyqhpvy7j" path="res://Images/Guns/Shotgun.png" id="13_w20ro"]
 [ext_resource type="AudioStream" uid="uid://kkbt05cxqqgr" path="res://Sounds/Sound effects/collectItem.wav" id="14_7bwv5"]
 [ext_resource type="AudioStream" uid="uid://chpb3ujfug3ti" path="res://Sounds/Sound effects/shoot.wav" id="14_rjbyx"]
 [ext_resource type="Texture2D" uid="uid://nousapmy0kkk" path="res://Images/Items/item-5-pixilart.png" id="15_g1bet"]
 [ext_resource type="Texture2D" uid="uid://h7p6lwi5cwq5" path="res://Images/Items/item-6-pixilart.png" id="16_58rqv"]
+[ext_resource type="Texture2D" uid="uid://cvekdfpfcpfb0" path="res://Images/Guns/RPG.png" id="16_skh18"]
 [ext_resource type="Script" path="res://ItemShowing.gd" id="16_xf53h"]
 [ext_resource type="Texture2D" uid="uid://xfla27k24ckk" path="res://Images/Items/Paper.png" id="18_tvvwa"]
 [ext_resource type="Texture2D" uid="uid://ctb1nnhqsbqt2" path="res://Images/Items/Pencil.png" id="19_uliaf"]
@@ -50,6 +54,30 @@ size = Vector2(142.667, 107.666)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6nqin"]
 size = Vector2(6.27416, 1.73982)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65gqp"]
+size = Vector2(150.667, 115.333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ldn0"]
+size = Vector2(8.40117, 2.12005)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5ehe"]
+size = Vector2(135.667, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mesjf"]
+size = Vector2(7.29797, 2.98125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmwu5"]
+size = Vector2(6.7455, 2.37535)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek258"]
+size = Vector2(135.667, 122.333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0skx4"]
+size = Vector2(8.07037, 2.24887)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0afy6"]
+size = Vector2(8.52081, 6.17748)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycci1"]
 size = Vector2(103.667, 83.0004)
@@ -86,11 +114,23 @@ font_color = Color(0, 0, 0, 1)
 font_size = 30
 font_color = Color(1, 0, 0, 1)
 
+[sub_resource type="Gradient" id="Gradient_pbgmq"]
+offsets = PackedFloat32Array(0.996753)
+colors = PackedColorArray(0.764706, 0.807843, 1, 0.439216)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_obxnb"]
+gradient = SubResource("Gradient_pbgmq")
+fill_from = Vector2(0.00688073, 0.00688073)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykllp"]
 size = Vector2(14, 1.8571)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wgfq"]
 size = Vector2(16.2857, 9.63562)
+
+[sub_resource type="Gradient" id="Gradient_k51k0"]
+offsets = PackedFloat32Array(0.00666667, 0.993333, 1)
+colors = PackedColorArray(0.910311, 0.48031, 0.269661, 1, 0.427493, 0.427493, 0.427493, 1, 1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agq5j"]
 size = Vector2(32.3332, 14.3333)
@@ -139,7 +179,7 @@ texture = ExtResource("1_vqcc3")
 [node name="Sprite2D2" type="Sprite2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(757, 487)
 scale = Vector2(1.8, 1.8)
-texture = ExtResource("3_s026a")
+texture = ExtResource("3_0ivfh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(-119.333, 484)
@@ -176,14 +216,20 @@ shape = SubResource("RectangleShape2D_6nqin")
 
 [node name="StartingHouse4" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 z_index = 1
-position = Vector2(834.376, 729.833)
-shape = SubResource("RectangleShape2D_d6dkw")
+position = Vector2(833.667, 737.334)
+shape = SubResource("RectangleShape2D_65gqp")
 
 [node name="StartingHouse5" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
-position = Vector2(803.334, 672.93)
-rotation = -0.382227
+position = Vector2(792.572, 663.107)
+rotation = -0.373721
 scale = Vector2(12, 12)
-shape = SubResource("RectangleShape2D_6nqin")
+shape = SubResource("RectangleShape2D_0ldn0")
+
+[node name="StartingHouse13" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
+position = Vector2(873.334, 666.334)
+rotation = 0.3735
+scale = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_0ldn0")
 
 [node name="StartingHouse6" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(866.043, 672.667)
@@ -193,37 +239,37 @@ shape = SubResource("RectangleShape2D_6nqin")
 
 [node name="StartingHouse10" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 z_index = 1
-position = Vector2(924.042, 98.4996)
-shape = SubResource("RectangleShape2D_d6dkw")
+position = Vector2(918.834, 112)
+shape = SubResource("RectangleShape2D_e5ehe")
 
 [node name="StartingHouse11" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
-position = Vector2(893, 41.5967)
+position = Vector2(886.634, 54.9314)
 rotation = -0.382227
 scale = Vector2(12, 12)
-shape = SubResource("RectangleShape2D_6nqin")
+shape = SubResource("RectangleShape2D_mesjf")
 
 [node name="StartingHouse12" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
-position = Vector2(955.667, 41.3336)
+position = Vector2(952.357, 51.7257)
 rotation = 0.366519
 scale = Vector2(12, 12)
-shape = SubResource("RectangleShape2D_6nqin")
+shape = SubResource("RectangleShape2D_wmwu5")
 
 [node name="StartingHouse7" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 z_index = 1
-position = Vector2(34.3757, 844.5)
-shape = SubResource("RectangleShape2D_d6dkw")
+position = Vector2(32.8337, 853.834)
+shape = SubResource("RectangleShape2D_ek258")
 
 [node name="StartingHouse8" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
-position = Vector2(3.33368, 787.597)
-rotation = -0.382227
+position = Vector2(1.00034, 779.334)
+rotation = -0.593749
 scale = Vector2(12, 12)
-shape = SubResource("RectangleShape2D_6nqin")
+shape = SubResource("RectangleShape2D_0skx4")
 
 [node name="StartingHouse9" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
-position = Vector2(66.0426, 787.334)
-rotation = 0.366519
+position = Vector2(45.9253, 798.365)
+rotation = 0.733114
 scale = Vector2(12, 12)
-shape = SubResource("RectangleShape2D_6nqin")
+shape = SubResource("RectangleShape2D_0afy6")
 
 [node name="EnemyHouse" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
 position = Vector2(7.16675, 351.834)
@@ -244,12 +290,12 @@ position = Vector2(408.5, 651.168)
 shape = SubResource("RectangleShape2D_ycci1")
 
 [node name="EnemyHouse5" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
-position = Vector2(385.667, 607.667)
+position = Vector2(408, 669)
 rotation = -0.445059
 shape = SubResource("RectangleShape2D_d4f47")
 
 [node name="EnemyHouse6" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
-position = Vector2(428, 606.667)
+position = Vector2(426.667, 662.667)
 rotation = 0.436332
 shape = SubResource("RectangleShape2D_d4f47")
 
@@ -523,6 +569,52 @@ label_settings = SubResource("LabelSettings_al1m0")
 [node name="Dialouge" type="AudioStreamPlayer" parent="Char/UI/dialouge"]
 stream = ExtResource("10_op6kb")
 
+[node name="TextureRect" type="TextureRect" parent="Char/UI"]
+layout_mode = 0
+offset_left = -165.857
+offset_top = 217.0
+offset_right = 474.143
+offset_bottom = 857.0
+scale = Vector2(0.182858, 0.205336)
+texture = ExtResource("12_yieyt")
+script = ExtResource("13_tq3ne")
+
+[node name="Selected" type="TextureRect" parent="Char/UI/TextureRect"]
+layout_mode = 0
+offset_left = 414.061
+offset_top = 230.98
+offset_right = 487.061
+offset_bottom = 294.98
+scale = Vector2(1.53125, 1.80703)
+texture = SubResource("GradientTexture2D_obxnb")
+
+[node name="0" type="TextureRect" parent="Char/UI/TextureRect"]
+layout_mode = 0
+offset_left = 132.812
+offset_top = 255.33
+offset_right = 196.812
+offset_bottom = 319.33
+scale = Vector2(1.65625, 1.66789)
+texture = ExtResource("13_ctu0t")
+
+[node name="1" type="TextureRect" parent="Char/UI/TextureRect"]
+layout_mode = 0
+offset_left = 271.093
+offset_top = 255.33
+offset_right = 335.093
+offset_bottom = 319.33
+scale = Vector2(1.65625, 1.66789)
+texture = ExtResource("13_w20ro")
+
+[node name="2" type="TextureRect" parent="Char/UI/TextureRect"]
+layout_mode = 0
+offset_left = 419.529
+offset_top = 280.376
+offset_right = 491.529
+offset_bottom = 344.376
+scale = Vector2(1.40624, 0.66605)
+texture = ExtResource("16_skh18")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Char"]
 position = Vector2(0.285706, 10.2143)
 shape = SubResource("RectangleShape2D_ykllp")
@@ -540,10 +632,35 @@ script = ExtResource("10_41k1o")
 
 [node name="Sprite2D" type="Sprite2D" parent="Char/Gun"]
 scale = Vector2(-0.222858, 0.234286)
-texture = ExtResource("13_ctu0t")
+texture = ExtResource("16_skh18")
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="Char/Gun"]
 stream = ExtResource("14_rjbyx")
+
+[node name="ShootEffect" type="CPUParticles2D" parent="Char/Gun"]
+position = Vector2(9.28571, -2.42857)
+rotation = 0.872665
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.9
+randomness = 0.5
+local_coords = true
+direction = Vector2(1, -1)
+spread = 90.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+angular_velocity_min = 13.0
+angular_velocity_max = 24.0
+color = Color(0.827451, 0.541176, 0.152941, 1)
+color_ramp = SubResource("Gradient_k51k0")
+
+[node name="Reload" type="Timer" parent="Char/Gun"]
+wait_time = 0.5
+one_shot = true
 
 [node name="ItemPickup" type="AudioStreamPlayer" parent="Char"]
 stream = ExtResource("14_7bwv5")
@@ -576,7 +693,7 @@ shape = SubResource("RectangleShape2D_agq5j")
 position = Vector2(813, 912)
 
 [node name="JeffHouse" type="CollisionShape2D" parent="Colliders/JeffHouse"]
-position = Vector2(1689, 1463)
+position = Vector2(1687, 1453)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_agq5j")
 
@@ -584,7 +701,7 @@ shape = SubResource("RectangleShape2D_agq5j")
 position = Vector2(-1253, 1376)
 
 [node name="JoeHouse" type="CollisionShape2D" parent="Colliders/JoeHouse"]
-position = Vector2(1353, 1346)
+position = Vector2(1292, 1377)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_agq5j")
 
@@ -758,7 +875,6 @@ texture = ExtResource("27_h6sbf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Banana/Banana"]
 position = Vector2(0, -0.17617)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_148jh")
 
 [node name="Filter" type="StaticBody2D" parent="Items"]
@@ -785,4 +901,5 @@ script = ExtResource("24_h348l")
 
 [connection signal="body_entered" from="NavigationRegion2D/StaticBody2D/Area2D" to="." method="_on_door"]
 [connection signal="body_entered" from="Char/Collisions" to="Char/UI/Hearts" method="enemy_hit"]
+[connection signal="timeout" from="Char/Gun/Reload" to="Char/Gun" method="_on_reload_timeout"]
 [connection signal="timeout" from="Enemys/EnemySpawn" to="Enemys" method="_on_timer_timeout"]
