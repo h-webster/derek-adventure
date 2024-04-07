@@ -24,3 +24,11 @@ var enemy_stats = {
 	"Enemy" : {"Health" : 5, "Speed" : 400},
 	"Slime" : {"Health" : 3, "Speed" : 300}
 }
+var sel_gun = 0
+var unlocked_guns = 0
+var guns = ["Pistol", "Shotgun", "RPG"]
+var gun_stats = {
+	"Pistol" : {"Speed" : 0.4, "DMG" : 2},
+	"Shotgun" : {"Speed" : 0.3, "DMG" : 1},
+	"RPG" : {"Speed" : 0.7, "DMG" : 10}
+}

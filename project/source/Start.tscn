@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://fc1qrw0qrcbo"]
+[gd_scene load_steps=14 format=3 uid="uid://fc1qrw0qrcbo"]
 
 [ext_resource type="Script" path="res://Button.gd" id="1_6ljsi"]
 [ext_resource type="Texture2D" uid="uid://g8hebppdgle3" path="res://Images/Player/base-1-1-pixilart.png" id="2_nq7fx"]
@@ -16,6 +16,10 @@
 font_size = 140
 font_color = Color(0, 1, 0.0823529, 1)
 outline_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_rbyvl"]
+font_size = 40
+font_color = Color(0, 1, 0, 1)
 
 [node name="Start" type="Control"]
 layout_mode = 3
@@ -38,6 +42,16 @@ offset_right = 2125.0
 offset_bottom = 233.0
 text = "Derek's Adventure"
 label_settings = SubResource("LabelSettings_oyvod")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2125.0
+offset_top = 1504.0
+offset_right = 2898.0
+offset_bottom = 1696.0
+text = "Inspired by the 17 UN goals"
+label_settings = SubResource("LabelSettings_rbyvl")
 horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

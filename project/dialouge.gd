@@ -32,6 +32,8 @@ func ended():
 		Global.items = 0
 		Global.completed += 1
 		Global.completed_people.append("Joe")
+	if dialouge_name.find("done") != -1 and Global.completed <= 2:
+		show_dialouge("newweapon", ["New Weapon Unlocked!"])
 	dialouge_name = ""
 
 func _process(delta):

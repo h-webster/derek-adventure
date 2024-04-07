@@ -49,7 +49,7 @@ func _physics_process(delta):
 			if Global.completed >= 2:
 				mission.text = "Mission: \n" + "Return back home"
 			else:
-				mission.text = "Mission: \n" + "People Helped: " + str(Global.completed) + "/2"
+				mission.text = "Mission: \n" + "People Helped: " + str(Global.completed) + "/3"
 		else:
 			mission.text = "Mission: \n" + Global.item_quests[Global.person_quest][0] + str(Global.items) + "/" + str(Global.item_quests[Global.person_quest][1])
 			if Global.items == Global.item_quests[Global.person_quest][1]:
@@ -105,8 +105,8 @@ func interact():
 		if collision.name == "Door" and Global.quest == 1:
 			Global.quest = 2
 			get_tree().change_scene_to_file("res://Outside.tscn")
-		elif collision.name == "House" and Global.completed < 2 and Global.person_quest != "":
-			dialouge.show_dialouge("none", ["I need to help at least 2 people"])
+		elif collision.name == "House" and Global.completed < 3 and Global.person_quest != "":
+			dialouge.show_dialouge("none", ["I need to help 3 people"])
 		elif collision.name == "JamalHouse" and (Global.person_quest == ""):
 			Global.last_enter = global_position
 			get_tree().change_scene_to_file("res://JamalRoom.tscn")
