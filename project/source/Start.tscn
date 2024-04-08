@@ -50,6 +50,7 @@ offset_left = 2125.0
 offset_top = 1504.0
 offset_right = 2898.0
 offset_bottom = 1696.0
+scale = Vector2(1, 1.00155)
 text = "Inspired by the 17 UN goals"
 label_settings = SubResource("LabelSettings_rbyvl")
 horizontal_alignment = 1

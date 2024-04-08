@@ -35,7 +35,7 @@ func _on_rocket_hit(body):
 	if body.is_in_group("enemies"):
 		body.health -= 10
 		if body.health <= 0:
-				body.queue_free()
+			body.queue_free()
 		else:
 			pass
 	queue_free()

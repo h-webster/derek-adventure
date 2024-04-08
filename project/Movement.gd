@@ -46,7 +46,7 @@ func _physics_process(delta):
 	
 	if Global.quests[Global.quest] == "person":
 		if Global.person_quest == "":
-			if Global.completed >= 2:
+			if Global.completed >= 3:
 				mission.text = "Mission: \n" + "Return back home"
 			else:
 				mission.text = "Mission: \n" + "People Helped: " + str(Global.completed) + "/3"
@@ -105,7 +105,7 @@ func interact():
 		if collision.name == "Door" and Global.quest == 1:
 			Global.quest = 2
 			get_tree().change_scene_to_file("res://Outside.tscn")
-		elif collision.name == "House" and Global.completed < 3 and Global.person_quest != "":
+		elif collision.name == "House" and Global.completed < 3:
 			dialouge.show_dialouge("none", ["I need to help 3 people"])
 		elif collision.name == "JamalHouse" and (Global.person_quest == ""):
 			Global.last_enter = global_position
@@ -116,11 +116,11 @@ func interact():
 					Global.last_enter = global_position
 					get_tree().change_scene_to_file("res://JamalRoom.tscn")
 				elif collision.name == "Jamal" and Global.person_quest == "thirst":
-					dialouge.show_dialouge("doneJamal", ["THANK YOU DEREK!", "*Drinks water"])
+					dialouge.show_dialouge("doneJamal", ["Jamal: THANK YOU DEREK!", "Jamal: *Drinks water"])
 			elif collision.name == "Jamal" and not "Jamal" in Global.completed_people and Global.person_quest == "thirst":
-				dialouge.show_dialouge("none", ["Help me Derek!!", "I'm very thirsty and\nmy water is unclean", "Please get me an apple, filter\n and a water bottle"])
+				dialouge.show_dialouge("none", ["Jamal: Help me Derek!!", "Jamal: I'm very thirsty and\nmy water is unclean", "Jamal: Please get me an apple, filter\n and a water bottle"])
 		elif collision.name == "Jamal" and Global.person_quest == "" and not "Jamal" in Global.completed_people:
-			dialouge.show_dialouge("jamal", ["Help me Derek!!", "I'm very thirsty and\nmy water is unclean", "Please get me an apple, filter\n and a water bottle"])
+			dialouge.show_dialouge("jamal", ["Jamal: Help me Derek!!", "Jamal: I'm very thirsty and\nmy water is unclean", "Jamal: Please get me an apple, filter\n and a water bottle"])
 		elif collision.name == "JeffHouse":
 			Global.last_enter = global_position
 			get_tree().change_scene_to_file("res://JeffRoom.tscn")
@@ -136,18 +136,18 @@ func interact():
 			dialouge.show_dialouge("none", ["I don't need to go outside"])
 		elif collision.name == "Jeff" and not "Jeff" in Global.completed_people:
 			if Global.person_quest == "":
-				dialouge.show_dialouge("jeff", ["Derek I'm hungry and dirty.", "Please help me by getting \nthese items", "A shirt, pants, banana and \nmeat"])
+				dialouge.show_dialouge("jeff", ["Jeff: Derek I'm hungry and dirty.", "Jeff: Please help me by getting \nthese items", "Jeff: A shirt, pants, banana and \nmeat"])
 			elif Global.item_quests[Global.person_quest][1] == Global.items and Global.person_quest == "hungry":
-				dialouge.show_dialouge("doneJeff", ["Oh Mr.Derek thank youu"])
+				dialouge.show_dialouge("doneJeff", ["Jeff: Oh Mr.Derek thank youu"])
 			elif Global.item_quests[Global.person_quest][1] != Global.items and Global.person_quest == "hungry":
-				dialouge.show_dialouge("none", ["Please get me my items..."])
+				dialouge.show_dialouge("none", ["Jeff: Please get me my items..."])
 		elif collision.name == "Joe" and not "Joe" in Global.completed_people:
 			if Global.person_quest == "":
-				dialouge.show_dialouge("joe", ["Derek I want education", "But, I don't have any \nmoney", "I need a book, paper, pencil \nand lamp"])
+				dialouge.show_dialouge("joe", ["Joe: Derek I want education", "Joe: But, I don't have any \nmoney", "Joe: I need a book, paper, pencil \nand lamp"])
 			elif Global.item_quests[Global.person_quest][1] == Global.items and Global.person_quest == "education":
-				dialouge.show_dialouge("doneJoe", ["Thanks I can now learn anything!"])
+				dialouge.show_dialouge("doneJoe", ["Joe: Thanks I can now learn anything!"])
 			elif Global.item_quests[Global.person_quest][1] != Global.items and Global.person_quest == "education":
-				dialouge.show_dialouge("none", ["Be careful."])
+				dialouge.show_dialouge("none", ["Joe: Be careful."])
 	var items = ["none"]
 	if Global.person_quest != "":
 		items = Global.item_quests[Global.person_quest][2]
