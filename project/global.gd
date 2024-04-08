@@ -15,7 +15,7 @@ var bullets
 var gun
 var player
 var item_quests = { #quest_name: display name, total items, node names, finish text
-	"thirst": ["Items Collected: ", 3, ["Apple", "BottleWater", "Filter"], "Return back to Jamal"],
+	"thirst": ["Items Collected: ", 3, ["Apple", "BottleWater", "Filter"], "Return to Jamal"],
 	"hungry": ["Items Collected: ", 4, ["Pants", "Meat", "Banana", "Shirt"], "Return back to Jeff"],
 	"education" : ["Items Collected: ", 4, ["Book", "Paper", "Lamp", "Pencil"], "Return back to Joe"]
 }

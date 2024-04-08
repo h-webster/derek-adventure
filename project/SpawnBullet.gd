@@ -20,6 +20,7 @@ func add_bullet():
 func add_rocket(pos):
 	var explosion = load("res://explosion.tscn")
 	var boom = explosion.instantiate()
+	$Explosion.play()
 	add_child(boom)
 	boom.global_position = pos
 	boom.emitting = true

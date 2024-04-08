@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://bywhhtyhir6jb"]
+[gd_scene load_steps=75 format=3 uid="uid://bywhhtyhir6jb"]
 
 [ext_resource type="Texture2D" uid="uid://r0i8odc2tso7" path="res://Images/Enviroment/Outside/Map1.png" id="1_vqcc3"]
 [ext_resource type="Script" path="res://Collisions.gd" id="1_wir8h"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://bvcm5a4lnfusm" path="res://Images/Items/pants.png" id="26_42bhg"]
 [ext_resource type="Texture2D" uid="uid://btkk40li2robh" path="res://Images/Items/Meat.png" id="26_snahv"]
 [ext_resource type="Texture2D" uid="uid://bppsdooyl5kg6" path="res://Images/Items/banana.png" id="27_h6sbf"]
+[ext_resource type="AudioStream" uid="uid://dhro7xp2u2yvl" path="res://Sounds/Sound effects/explosion.wav" id="37_efr7c"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_l7bgy"]
 vertices = PackedVector2Array(1518, -327, 1516, 256, 1516, -316, -309, -327, -294, -316, -322, 695, -294, 692, 1514, 695, -240, 692, -240, 688, 1462, 688, 1462, 692, 1514, 692, 538, 479, 1232, 475, 1325, 475, 896, 483, 281, 123, 485, 121, 648, 121, 766, 266, 766, 365, 538, 381, 445, 381, 323, 304, 334, 640, 721, 617, 827, 615, 951, 615, 1462, 654, -240, 654, 240, 640, 739, 116, 1136, 107, 1229, 107, 1219, 256, 1126, 256, 675, -156, 1116, -171, 1239, -171, 954, -135, 860, -135, 1349, -130, 1411, -20, 1318, -20, 954, -36, 1382, 337, 1337, 360, 1327, 360, 1219, 354, 1385, 335, 1462, -282, 1450, 463, 1450, 360, 628, 617, 859, 365, 1126, 354, 1325, 376, 1232, 376, 1327, 463, 1443, -130, 1443, -229, 1411, 79, 1439, 360, 1318, 79, 1396, 331, 1386, 335, 82, 602, -11, 602, 473, -39, 562, -36, 559, -31, 496, -6, 485, -6, 8, -30, 380, -39, 1228, -274, 1211, -282, 1239, -274, -165, -282, 1142, -282, 1126, -274, 1116, -274, 1349, -229, 1229, 9, 1136, 9, 240, 542, 82, 503, 323, 407, 445, 479, -128, 469, 199, 407, 334, 542, 51, 398, -42, 398, -128, 370, -42, 299, 951, 512, 1396, 340, 628, 519, 199, 304, 51, 299, 188, 123, 188, 25, -79, 108, -79, 5, 859, 266, 675, -255, 582, -255, -165, -191, 582, -156, 473, -137, 380, -137, 739, 17, 860, -36, 721, 519, 827, 512, 648, 116, 281, 25, -85, -30, -88, 5, -152, -25, 576, -38, 648, 17, 648, -6, -85, -129, -240, -191, 8, -129, 311, 304, 268, 282, 268, 275, 259, 278, 258, 278, 254, 281, 209, 304, -202, 108, -222, 370, -11, 503, -222, 469, 638, -6, 576, -30, -152, -14, -202, 9, 939, 512, 896, 491, 566, -34, 886, 487, 884, 488, 837, 512)
@@ -898,6 +899,9 @@ autoplay = true
 
 [node name="Bullets" type="Node2D" parent="."]
 script = ExtResource("24_h348l")
+
+[node name="Explosion" type="AudioStreamPlayer" parent="Bullets"]
+stream = ExtResource("37_efr7c")
 
 [connection signal="body_entered" from="NavigationRegion2D/StaticBody2D/Area2D" to="." method="_on_door"]
 [connection signal="body_entered" from="Char/Collisions" to="Char/UI/Hearts" method="enemy_hit"]
