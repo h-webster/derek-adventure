@@ -20,8 +20,8 @@ func _ready():
 	else:
 		dialouge = $UI/dialouge
 		mission = $UI/mission/Label
-	
 
+	
 func _physics_process(delta):
 	if dialouge.visible:
 		return
@@ -72,7 +72,7 @@ func display_menu():
 	
 	var collisions = area.get_overlapping_bodies()
 	var areas = area.get_overlapping_areas()
-	var can_interact = ["Door", "Grandma", "House", "Jamal", "JamalHouse", "JeffHouse", "Jeff", "Joe", "JoeHouse"]
+	var can_interact = ["Door", "Grandma", "House", "Jamal", "JamalHouse", "JeffHouse", "Jeff", "Joe", "JoeHouse", "Instruction"]
 	var can_interact_area
 	if Global.person_quest != "":
 		can_interact_area = Global.item_quests[Global.person_quest][2]
@@ -148,6 +148,8 @@ func interact():
 				dialouge.show_dialouge("doneJoe", ["Joe: Thanks I can now learn anything!"])
 			elif Global.item_quests[Global.person_quest][1] != Global.items and Global.person_quest == "education":
 				dialouge.show_dialouge("none", ["Joe: Be careful."])
+		elif collision.name == "Instruction":
+			dialouge.show_dialouge("none", ["Welcome to derek's adventure!", "Here is how to play...", "In this game you have to\nhelp people by", "getting specific items for \nthem.", "There are also enemies trying\nto kill you!", "You have guns to \nshoot the enemies.", "You get more guns when \nyou help people", "To switch guns press \n1, 2 or 3"])
 	var items = ["none"]
 	if Global.person_quest != "":
 		items = Global.item_quests[Global.person_quest][2]
