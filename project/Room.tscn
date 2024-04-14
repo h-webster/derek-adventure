@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cixvlwvj6s0mg"]
+[gd_scene load_steps=23 format=3 uid="uid://cixvlwvj6s0mg"]
 
 [ext_resource type="Texture2D" uid="uid://c2cj68lp0bhmb" path="res://Images/Enviroment/Room/clearroom.png" id="1_rmx7i"]
 [ext_resource type="Script" path="res://Movement.gd" id="2_cp8fw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://dialouge.gd" id="5_ychib"]
 [ext_resource type="AudioStream" uid="uid://bf2220jyxbw0g" path="res://Sounds/Sound effects/dialouge.wav" id="6_hkcjx"]
 [ext_resource type="AudioStream" uid="uid://bd7m0rnvk8jfl" path="res://Sounds/Music/Room.wav" id="6_mal6j"]
+[ext_resource type="Texture2D" uid="uid://dg0fbvc32sbme" path="res://Images/enemies/scroll-game-pixelated-icon-vector-34519375-removebg-preview.png" id="7_p4sx6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3y0x"]
 size = Vector2(20, 409)
@@ -48,12 +49,16 @@ font_color = Color(1, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtys0"]
 size = Vector2(90.4762, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i385u"]
+size = Vector2(96.9643, 117.805)
+
 [node name="Room" type="Node2D"]
 scale = Vector2(1.68, 1.64)
 
 [node name="Room" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Room"]
+z_index = -2
 scale = Vector2(2.88, 2.88)
 texture = ExtResource("1_rmx7i")
 
@@ -117,6 +122,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="mission" type="TextureRect" parent="UI"]
+z_index = 4
 layout_mode = 0
 offset_left = -537.5
 offset_top = -382.927
@@ -190,6 +196,19 @@ stream = ExtResource("6_hkcjx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Door"]
 position = Vector2(296.429, -114.024)
 shape = SubResource("RectangleShape2D_gtys0")
+
+[node name="Instruction" type="StaticBody2D" parent="Colliders"]
+position = Vector2(-294.643, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Instruction"]
+position = Vector2(-3.83928, -10)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_i385u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Colliders/Instruction"]
+z_index = -1
+scale = Vector2(0.285715, 0.268291)
+texture = ExtResource("7_p4sx6")
 
 [node name="Room2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_mal6j")
