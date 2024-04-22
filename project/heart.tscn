@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://dxu6k34vflugy"]
-
-[node name="Heart" type="TextureRect"]
-offset_left = -309.0
-offset_right = -269.0
-offset_bottom = 40.0
-scale = Vector2(1.131, 1.684)
